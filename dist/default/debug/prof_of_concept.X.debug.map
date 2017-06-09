@@ -60,8 +60,10 @@ Archive member included because of file (symbol)
 Allocating common symbols
 Common symbol       size              file
 
+rb_prev             0x2               build/default/debug/button.o
 curs_head           0x4               build/default/debug/mini_caps.o
-history             0x808             build/default/debug/mini_caps.o
+history             0x800             build/default/debug/mini_caps.o
+offset_screen       0x4               build/default/debug/mini_caps.o
 oledBuffer          0x400             build/default/debug/oled_ssd1306.o
 line_screen         0x4               build/default/debug/mini_caps.o
 curs_over_head      0x4               build/default/debug/mini_caps.o
@@ -79,55 +81,57 @@ section                    address  length [bytes]      (dec)  Description
 .text._sprintf_cdfFnops 0x9d000110           0x6c         108   
 .app_excpt              0x9d000180           0x10          16  General-Exception 
 .text.__sputn           0x9d000190           0x68         104   
-.text._on_reset         0x9d0001f8            0x8           8   
-.vectors                0x9d000200           0x48          72   
-.text                   0x9d000248         0x1b54        6996  App's exec code 
-.text._do_print_cdfFnop 0x9d001d9c          0xadc        2780   
-.text                   0x9d002878          0xb6c        2924  App's exec code 
-.dinit                  0x9d0033e4          0x4b0        1200   
-.text._fconvert         0x9d003894          0x490        1168   
-.text                   0x9d003d24          0x8bc        2236  App's exec code 
-.rodata                 0x9d0045e0          0x30c         780  Read-only const 
-.text._outcnvrt         0x9d0048ec          0x13c         316   
-.text._flsbuf_simple    0x9d004a28           0xfc         252   
-.text._modfx            0x9d004b24           0xfc         252   
-.rodata                 0x9d004c20           0xe0         224  Read-only const 
-.text.general_exception 0x9d004d00           0xdc         220   
-.text._cache_err_except 0x9d004ddc           0xd8         216   
-.text.simple_tlb_refill 0x9d004eb4           0xd8         216   
-.text._mon_putc         0x9d004f8c           0xd4         212   
-.tlb.__pic32_tlb_init_e 0x9d005060           0xbc         188   
-.text                   0x9d00511c           0xac         172  App's exec code 
-.text.fputc             0x9d0051c8           0xac         172   
-.text.repl              0x9d005274           0x9c         156   
-.text.strlen            0x9d005310           0x94         148   
-.text._fflush_simple    0x9d0053a4           0x80         128   
-.text._fwrite_simple    0x9d005424           0x80         128   
-.text.main_entry        0x9d0054a4           0x54          84   
-.rodata                 0x9d0054f8           0x54          84  Read-only const 
-.text._mon_write        0x9d00554c           0x4c          76   
-.text._bootstrap_except 0x9d005598           0x48          72   
-.text._general_exceptio 0x9d0055e0           0x48          72   
-.text._cache_err_except 0x9d005628           0x48          72   
-.text._simple_tlb_refil 0x9d005670           0x48          72   
-.text                   0x9d0056b8           0x44          68  App's exec code 
-.text._filbuf_simple    0x9d0056fc           0x34          52   
-.text._fsync_simple     0x9d005730           0x30          48   
-.text.putchar           0x9d005760           0x24          36   
-.text._vfprintf_cdfFnop 0x9d005784           0x1c          28   
-.text.putc              0x9d0057a0           0x1c          28   
-.text                   0x9d0057bc           0x18          24  App's exec code 
-.text._io_exit          0x9d0057d4           0x14          20   
-.rodata                 0x9d0057e8           0x14          20  Read-only const 
-.text._io_exit          0x9d0057fc           0x14          20   
-.rodata                 0x9d005810           0x14          20  Read-only const 
-.text._on_bootstrap     0x9d005824            0x8           8   
-.text._filbuf_string    0x9d00582c            0x8           8   
-.text._flsbuf_string    0x9d005834            0x8           8   
-.text._fflush_string    0x9d00583c            0x8           8   
-.text._fwrite_string    0x9d005844            0x8           8   
-.text._fsync_string     0x9d00584c            0x8           8   
-      Total kseg0_program_mem used  :      0x5850       22608  1.1% of 0x200000
+.rodata                 0x9d0001f8            0x8           8  Read-only const 
+.vectors                0x9d000200           0x50          80   
+.text                   0x9d000250         0x1b54        6996  App's exec code 
+.text._do_print_cdfFnop 0x9d001da4          0xadc        2780   
+.text                   0x9d002880          0xbe4        3044  App's exec code 
+.text                   0x9d003464          0x53c        1340  App's exec code 
+.dinit                  0x9d0039a0          0x4c0        1216   
+.text._fconvert         0x9d003e60          0x490        1168   
+.text                   0x9d0042f0          0x8bc        2236  App's exec code 
+.rodata                 0x9d004bac          0x30c         780  Read-only const 
+.text._outcnvrt         0x9d004eb8          0x13c         316   
+.text._flsbuf_simple    0x9d004ff4           0xfc         252   
+.text._modfx            0x9d0050f0           0xfc         252   
+.rodata                 0x9d0051ec           0xe0         224  Read-only const 
+.text.general_exception 0x9d0052cc           0xdc         220   
+.text._cache_err_except 0x9d0053a8           0xd8         216   
+.text.simple_tlb_refill 0x9d005480           0xd8         216   
+.text._mon_putc         0x9d005558           0xd4         212   
+.tlb.__pic32_tlb_init_e 0x9d00562c           0xbc         188   
+.text                   0x9d0056e8           0xac         172  App's exec code 
+.text.fputc             0x9d005794           0xac         172   
+.text.repl              0x9d005840           0x9c         156   
+.text.strlen            0x9d0058dc           0x94         148   
+.text._fflush_simple    0x9d005970           0x80         128   
+.text._fwrite_simple    0x9d0059f0           0x80         128   
+.text.main_entry        0x9d005a70           0x54          84   
+.rodata                 0x9d005ac4           0x54          84  Read-only const 
+.text._mon_write        0x9d005b18           0x4c          76   
+.text._bootstrap_except 0x9d005b64           0x48          72   
+.text._general_exceptio 0x9d005bac           0x48          72   
+.text._cache_err_except 0x9d005bf4           0x48          72   
+.text._simple_tlb_refil 0x9d005c3c           0x48          72   
+.text                   0x9d005c84           0x44          68  App's exec code 
+.text._filbuf_simple    0x9d005cc8           0x34          52   
+.text._fsync_simple     0x9d005cfc           0x30          48   
+.text.putchar           0x9d005d2c           0x24          36   
+.text._vfprintf_cdfFnop 0x9d005d50           0x1c          28   
+.text.putc              0x9d005d6c           0x1c          28   
+.text                   0x9d005d88           0x18          24  App's exec code 
+.text._io_exit          0x9d005da0           0x14          20   
+.rodata                 0x9d005db4           0x14          20  Read-only const 
+.text._io_exit          0x9d005dc8           0x14          20   
+.rodata                 0x9d005ddc           0x14          20  Read-only const 
+.text._on_reset         0x9d005df0            0x8           8   
+.text._on_bootstrap     0x9d005df8            0x8           8   
+.text._filbuf_string    0x9d005e00            0x8           8   
+.text._flsbuf_string    0x9d005e08            0x8           8   
+.text._fflush_string    0x9d005e10            0x8           8   
+.text._fwrite_string    0x9d005e18            0x8           8   
+.text._fsync_string     0x9d005e20            0x8           8   
+      Total kseg0_program_mem used  :      0x5e24       24100  1.1% of 0x200000
 
 kseg0 Boot-Memory Usage
 section                    address  length [bytes]      (dec)  Description
@@ -141,7 +145,7 @@ section                    address  length [bytes]      (dec)  Description
 .bev_excpt              0xbfc00380           0x10          16  BEV-Exception 
          Total kseg1_boot_mem used  :       0x230         560  48.6% of 0x480
         --------------------------------------------------------------------------
-         Total Program Memory used  :      0x5a80       23168  1.1% of 0x200480
+         Total Program Memory used  :      0x6054       24660  1.2% of 0x200480
         --------------------------------------------------------------------------
 
 
@@ -149,12 +153,12 @@ kseg0 Data-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
 reserve_data_0_kseg0    0x80000000          0x380         896   
-.sdata                  0x80000380           0x2c          44  Small init data 
-.sbss                   0x800003ac           0x10          16  Small uninit data 
-.bss                    0x800003bc          0xc88        3208  Uninitialized data 
-.data                   0x80001044           0xd4         212  Initialized data 
-.bss                    0x80001118           0x88         136  Uninitialized data 
-         Total kseg0_data_mem used  :      0x11a0        4512  0.9% of 0x80000
+.sdata                  0x80000380           0x30          48  Small init data 
+.sbss                   0x800003b0           0x18          24  Small uninit data 
+.bss                    0x800003c8          0xc80        3200  Uninitialized data 
+.data                   0x80001048           0xd4         212  Initialized data 
+.bss                    0x8000111c           0x88         136  Uninitialized data 
+         Total kseg0_data_mem used  :      0x11a4        4516  0.9% of 0x80000
 
 kseg1 Data-Memory Usage
 section                    address  length [bytes]      (dec)  Description
@@ -162,7 +166,7 @@ section                    address  length [bytes]      (dec)  Description
 reserve_data_0_kseg1    0xa0000000          0x380         896   
          Total kseg1_data_mem used  :       0x380         896  100.0% of 0x380
         --------------------------------------------------------------------------
-            Total Data Memory used  :      0x1520        5408  1.0% of 0x80380
+            Total Data Memory used  :      0x1524        5412  1.0% of 0x80380
         --------------------------------------------------------------------------
 
 
@@ -170,7 +174,7 @@ Dynamic Data-Memory Reservation
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
 heap                    0x800011a8           0x10          16  Reserved for heap 
-stack                   0x800011d0        0x7ee28      519720  Reserved for stack 
+stack                   0x800011d0        0x7ee20      519712  Reserved for stack 
 
         --------------------------------------------------------------------------
 
@@ -182,6 +186,7 @@ Discarded input sections
  .reginfo       0x00000000       0x18 build/default/debug/mpu_i2c.o
  .reginfo       0x00000000       0x18 build/default/debug/oled_ssd1306.o
  .reginfo       0x00000000       0x18 build/default/debug/mini_caps.o
+ .reginfo       0x00000000       0x18 build/default/debug/button.o
  .reginfo       0x00000000       0x18 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/default_isr_vectors.o
  .discard       0x00000000        0x4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/default_isr_vectors.o
  .reginfo       0x00000000       0x18 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/pic32_software_reset.o
@@ -405,6 +410,7 @@ LOAD build/default/debug/i2c_oled.o
 LOAD build/default/debug/mpu_i2c.o
 LOAD build/default/debug/oled_ssd1306.o
 LOAD build/default/debug/mini_caps.o
+LOAD build/default/debug/button.o
                 0x00000001                __MPLAB_BUILD = 0x1
                 0x00000001                __MPLAB_DEBUG = 0x1
                 0x00000001                __DEBUG = 0x1
@@ -889,588 +895,590 @@ END GROUP
  *(.gen_handler)
  .gen_handler   0x9d000180       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/crt0_mips32r2.o
 
-.vectors        0x9d000200       0x48
-                0x00000200                __vector_offset_0 = DEFINED (__vector_dispatch_0)?(. - _ebase_address):__vector_offset_default
+.vectors        0x9d000200       0x50
+                0x00000208                __vector_offset_0 = DEFINED (__vector_dispatch_0)?(. - _ebase_address):__vector_offset_default
  *(.vector_0)
-                0x00000200                __vector_offset_1 = DEFINED (__vector_dispatch_1)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_1 = DEFINED (__vector_dispatch_1)?(. - _ebase_address):__vector_offset_default
  *(.vector_1)
-                0x00000200                __vector_offset_2 = DEFINED (__vector_dispatch_2)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_2 = DEFINED (__vector_dispatch_2)?(. - _ebase_address):__vector_offset_default
  *(.vector_2)
-                0x00000200                __vector_offset_3 = DEFINED (__vector_dispatch_3)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_3 = DEFINED (__vector_dispatch_3)?(. - _ebase_address):__vector_offset_default
  *(.vector_3)
-                0x00000200                __vector_offset_4 = DEFINED (__vector_dispatch_4)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_4 = DEFINED (__vector_dispatch_4)?(. - _ebase_address):__vector_offset_default
  *(.vector_4)
-                0x00000200                __vector_offset_5 = DEFINED (__vector_dispatch_5)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_5 = DEFINED (__vector_dispatch_5)?(. - _ebase_address):__vector_offset_default
  *(.vector_5)
-                0x00000200                __vector_offset_6 = DEFINED (__vector_dispatch_6)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_6 = DEFINED (__vector_dispatch_6)?(. - _ebase_address):__vector_offset_default
  *(.vector_6)
-                0x00000200                __vector_offset_7 = DEFINED (__vector_dispatch_7)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_7 = DEFINED (__vector_dispatch_7)?(. - _ebase_address):__vector_offset_default
  *(.vector_7)
-                0x00000200                __vector_offset_8 = DEFINED (__vector_dispatch_8)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_8 = DEFINED (__vector_dispatch_8)?(. - _ebase_address):__vector_offset_default
  *(.vector_8)
                 0x00000200                __vector_offset_9 = DEFINED (__vector_dispatch_9)?(. - _ebase_address):__vector_offset_default
  *(.vector_9)
-                0x00000200                __vector_offset_10 = DEFINED (__vector_dispatch_10)?(. - _ebase_address):__vector_offset_default
+ .vector_9      0x9d000200        0x8 build/default/debug/button.o
+                0x9d000200                __vector_dispatch_9
+                0x00000208                __vector_offset_10 = DEFINED (__vector_dispatch_10)?(. - _ebase_address):__vector_offset_default
  *(.vector_10)
-                0x00000200                __vector_offset_11 = DEFINED (__vector_dispatch_11)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_11 = DEFINED (__vector_dispatch_11)?(. - _ebase_address):__vector_offset_default
  *(.vector_11)
-                0x00000200                __vector_offset_12 = DEFINED (__vector_dispatch_12)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_12 = DEFINED (__vector_dispatch_12)?(. - _ebase_address):__vector_offset_default
  *(.vector_12)
-                0x00000200                __vector_offset_13 = DEFINED (__vector_dispatch_13)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_13 = DEFINED (__vector_dispatch_13)?(. - _ebase_address):__vector_offset_default
  *(.vector_13)
-                0x00000200                __vector_offset_14 = DEFINED (__vector_dispatch_14)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_14 = DEFINED (__vector_dispatch_14)?(. - _ebase_address):__vector_offset_default
  *(.vector_14)
-                0x00000200                __vector_offset_15 = DEFINED (__vector_dispatch_15)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_15 = DEFINED (__vector_dispatch_15)?(. - _ebase_address):__vector_offset_default
  *(.vector_15)
-                0x00000200                __vector_offset_16 = DEFINED (__vector_dispatch_16)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_16 = DEFINED (__vector_dispatch_16)?(. - _ebase_address):__vector_offset_default
  *(.vector_16)
-                0x00000200                __vector_offset_17 = DEFINED (__vector_dispatch_17)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_17 = DEFINED (__vector_dispatch_17)?(. - _ebase_address):__vector_offset_default
  *(.vector_17)
-                0x00000200                __vector_offset_18 = DEFINED (__vector_dispatch_18)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_18 = DEFINED (__vector_dispatch_18)?(. - _ebase_address):__vector_offset_default
  *(.vector_18)
-                0x00000200                __vector_offset_19 = DEFINED (__vector_dispatch_19)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_19 = DEFINED (__vector_dispatch_19)?(. - _ebase_address):__vector_offset_default
  *(.vector_19)
-                0x00000200                __vector_offset_20 = DEFINED (__vector_dispatch_20)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_20 = DEFINED (__vector_dispatch_20)?(. - _ebase_address):__vector_offset_default
  *(.vector_20)
-                0x00000200                __vector_offset_21 = DEFINED (__vector_dispatch_21)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_21 = DEFINED (__vector_dispatch_21)?(. - _ebase_address):__vector_offset_default
  *(.vector_21)
-                0x00000200                __vector_offset_22 = DEFINED (__vector_dispatch_22)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_22 = DEFINED (__vector_dispatch_22)?(. - _ebase_address):__vector_offset_default
  *(.vector_22)
-                0x00000200                __vector_offset_23 = DEFINED (__vector_dispatch_23)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_23 = DEFINED (__vector_dispatch_23)?(. - _ebase_address):__vector_offset_default
  *(.vector_23)
-                0x00000200                __vector_offset_24 = DEFINED (__vector_dispatch_24)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_24 = DEFINED (__vector_dispatch_24)?(. - _ebase_address):__vector_offset_default
  *(.vector_24)
-                0x00000200                __vector_offset_25 = DEFINED (__vector_dispatch_25)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_25 = DEFINED (__vector_dispatch_25)?(. - _ebase_address):__vector_offset_default
  *(.vector_25)
-                0x00000200                __vector_offset_26 = DEFINED (__vector_dispatch_26)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_26 = DEFINED (__vector_dispatch_26)?(. - _ebase_address):__vector_offset_default
  *(.vector_26)
-                0x00000200                __vector_offset_27 = DEFINED (__vector_dispatch_27)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_27 = DEFINED (__vector_dispatch_27)?(. - _ebase_address):__vector_offset_default
  *(.vector_27)
-                0x00000200                __vector_offset_28 = DEFINED (__vector_dispatch_28)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_28 = DEFINED (__vector_dispatch_28)?(. - _ebase_address):__vector_offset_default
  *(.vector_28)
-                0x00000200                __vector_offset_29 = DEFINED (__vector_dispatch_29)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_29 = DEFINED (__vector_dispatch_29)?(. - _ebase_address):__vector_offset_default
  *(.vector_29)
-                0x00000200                __vector_offset_30 = DEFINED (__vector_dispatch_30)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_30 = DEFINED (__vector_dispatch_30)?(. - _ebase_address):__vector_offset_default
  *(.vector_30)
-                0x00000200                __vector_offset_31 = DEFINED (__vector_dispatch_31)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_31 = DEFINED (__vector_dispatch_31)?(. - _ebase_address):__vector_offset_default
  *(.vector_31)
-                0x00000200                __vector_offset_32 = DEFINED (__vector_dispatch_32)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_32 = DEFINED (__vector_dispatch_32)?(. - _ebase_address):__vector_offset_default
  *(.vector_32)
-                0x00000200                __vector_offset_33 = DEFINED (__vector_dispatch_33)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_33 = DEFINED (__vector_dispatch_33)?(. - _ebase_address):__vector_offset_default
  *(.vector_33)
-                0x00000200                __vector_offset_34 = DEFINED (__vector_dispatch_34)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_34 = DEFINED (__vector_dispatch_34)?(. - _ebase_address):__vector_offset_default
  *(.vector_34)
-                0x00000200                __vector_offset_35 = DEFINED (__vector_dispatch_35)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_35 = DEFINED (__vector_dispatch_35)?(. - _ebase_address):__vector_offset_default
  *(.vector_35)
-                0x00000200                __vector_offset_36 = DEFINED (__vector_dispatch_36)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_36 = DEFINED (__vector_dispatch_36)?(. - _ebase_address):__vector_offset_default
  *(.vector_36)
-                0x00000200                __vector_offset_37 = DEFINED (__vector_dispatch_37)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_37 = DEFINED (__vector_dispatch_37)?(. - _ebase_address):__vector_offset_default
  *(.vector_37)
-                0x00000200                __vector_offset_38 = DEFINED (__vector_dispatch_38)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_38 = DEFINED (__vector_dispatch_38)?(. - _ebase_address):__vector_offset_default
  *(.vector_38)
-                0x00000200                __vector_offset_39 = DEFINED (__vector_dispatch_39)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_39 = DEFINED (__vector_dispatch_39)?(. - _ebase_address):__vector_offset_default
  *(.vector_39)
-                0x00000200                __vector_offset_40 = DEFINED (__vector_dispatch_40)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_40 = DEFINED (__vector_dispatch_40)?(. - _ebase_address):__vector_offset_default
  *(.vector_40)
-                0x00000200                __vector_offset_41 = DEFINED (__vector_dispatch_41)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_41 = DEFINED (__vector_dispatch_41)?(. - _ebase_address):__vector_offset_default
  *(.vector_41)
-                0x00000200                __vector_offset_42 = DEFINED (__vector_dispatch_42)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_42 = DEFINED (__vector_dispatch_42)?(. - _ebase_address):__vector_offset_default
  *(.vector_42)
-                0x00000200                __vector_offset_43 = DEFINED (__vector_dispatch_43)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_43 = DEFINED (__vector_dispatch_43)?(. - _ebase_address):__vector_offset_default
  *(.vector_43)
-                0x00000200                __vector_offset_44 = DEFINED (__vector_dispatch_44)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_44 = DEFINED (__vector_dispatch_44)?(. - _ebase_address):__vector_offset_default
  *(.vector_44)
-                0x00000200                __vector_offset_45 = DEFINED (__vector_dispatch_45)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_45 = DEFINED (__vector_dispatch_45)?(. - _ebase_address):__vector_offset_default
  *(.vector_45)
-                0x00000200                __vector_offset_46 = DEFINED (__vector_dispatch_46)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_46 = DEFINED (__vector_dispatch_46)?(. - _ebase_address):__vector_offset_default
  *(.vector_46)
-                0x00000200                __vector_offset_47 = DEFINED (__vector_dispatch_47)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_47 = DEFINED (__vector_dispatch_47)?(. - _ebase_address):__vector_offset_default
  *(.vector_47)
-                0x00000200                __vector_offset_48 = DEFINED (__vector_dispatch_48)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_48 = DEFINED (__vector_dispatch_48)?(. - _ebase_address):__vector_offset_default
  *(.vector_48)
-                0x00000200                __vector_offset_49 = DEFINED (__vector_dispatch_49)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_49 = DEFINED (__vector_dispatch_49)?(. - _ebase_address):__vector_offset_default
  *(.vector_49)
-                0x00000200                __vector_offset_50 = DEFINED (__vector_dispatch_50)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_50 = DEFINED (__vector_dispatch_50)?(. - _ebase_address):__vector_offset_default
  *(.vector_50)
-                0x00000200                __vector_offset_51 = DEFINED (__vector_dispatch_51)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_51 = DEFINED (__vector_dispatch_51)?(. - _ebase_address):__vector_offset_default
  *(.vector_51)
-                0x00000200                __vector_offset_52 = DEFINED (__vector_dispatch_52)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_52 = DEFINED (__vector_dispatch_52)?(. - _ebase_address):__vector_offset_default
  *(.vector_52)
-                0x00000200                __vector_offset_53 = DEFINED (__vector_dispatch_53)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_53 = DEFINED (__vector_dispatch_53)?(. - _ebase_address):__vector_offset_default
  *(.vector_53)
-                0x00000200                __vector_offset_54 = DEFINED (__vector_dispatch_54)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_54 = DEFINED (__vector_dispatch_54)?(. - _ebase_address):__vector_offset_default
  *(.vector_54)
-                0x00000200                __vector_offset_55 = DEFINED (__vector_dispatch_55)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_55 = DEFINED (__vector_dispatch_55)?(. - _ebase_address):__vector_offset_default
  *(.vector_55)
-                0x00000200                __vector_offset_56 = DEFINED (__vector_dispatch_56)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_56 = DEFINED (__vector_dispatch_56)?(. - _ebase_address):__vector_offset_default
  *(.vector_56)
-                0x00000200                __vector_offset_57 = DEFINED (__vector_dispatch_57)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_57 = DEFINED (__vector_dispatch_57)?(. - _ebase_address):__vector_offset_default
  *(.vector_57)
-                0x00000200                __vector_offset_58 = DEFINED (__vector_dispatch_58)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_58 = DEFINED (__vector_dispatch_58)?(. - _ebase_address):__vector_offset_default
  *(.vector_58)
-                0x00000200                __vector_offset_59 = DEFINED (__vector_dispatch_59)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_59 = DEFINED (__vector_dispatch_59)?(. - _ebase_address):__vector_offset_default
  *(.vector_59)
-                0x00000200                __vector_offset_60 = DEFINED (__vector_dispatch_60)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_60 = DEFINED (__vector_dispatch_60)?(. - _ebase_address):__vector_offset_default
  *(.vector_60)
-                0x00000200                __vector_offset_61 = DEFINED (__vector_dispatch_61)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_61 = DEFINED (__vector_dispatch_61)?(. - _ebase_address):__vector_offset_default
  *(.vector_61)
-                0x00000200                __vector_offset_62 = DEFINED (__vector_dispatch_62)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_62 = DEFINED (__vector_dispatch_62)?(. - _ebase_address):__vector_offset_default
  *(.vector_62)
-                0x00000200                __vector_offset_63 = DEFINED (__vector_dispatch_63)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_63 = DEFINED (__vector_dispatch_63)?(. - _ebase_address):__vector_offset_default
  *(.vector_63)
-                0x00000200                __vector_offset_64 = DEFINED (__vector_dispatch_64)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_64 = DEFINED (__vector_dispatch_64)?(. - _ebase_address):__vector_offset_default
  *(.vector_64)
-                0x00000200                __vector_offset_65 = DEFINED (__vector_dispatch_65)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_65 = DEFINED (__vector_dispatch_65)?(. - _ebase_address):__vector_offset_default
  *(.vector_65)
-                0x00000200                __vector_offset_66 = DEFINED (__vector_dispatch_66)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_66 = DEFINED (__vector_dispatch_66)?(. - _ebase_address):__vector_offset_default
  *(.vector_66)
-                0x00000200                __vector_offset_67 = DEFINED (__vector_dispatch_67)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_67 = DEFINED (__vector_dispatch_67)?(. - _ebase_address):__vector_offset_default
  *(.vector_67)
-                0x00000200                __vector_offset_68 = DEFINED (__vector_dispatch_68)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_68 = DEFINED (__vector_dispatch_68)?(. - _ebase_address):__vector_offset_default
  *(.vector_68)
-                0x00000200                __vector_offset_69 = DEFINED (__vector_dispatch_69)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_69 = DEFINED (__vector_dispatch_69)?(. - _ebase_address):__vector_offset_default
  *(.vector_69)
-                0x00000200                __vector_offset_70 = DEFINED (__vector_dispatch_70)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_70 = DEFINED (__vector_dispatch_70)?(. - _ebase_address):__vector_offset_default
  *(.vector_70)
-                0x00000200                __vector_offset_71 = DEFINED (__vector_dispatch_71)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_71 = DEFINED (__vector_dispatch_71)?(. - _ebase_address):__vector_offset_default
  *(.vector_71)
-                0x00000200                __vector_offset_72 = DEFINED (__vector_dispatch_72)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_72 = DEFINED (__vector_dispatch_72)?(. - _ebase_address):__vector_offset_default
  *(.vector_72)
-                0x00000200                __vector_offset_73 = DEFINED (__vector_dispatch_73)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_73 = DEFINED (__vector_dispatch_73)?(. - _ebase_address):__vector_offset_default
  *(.vector_73)
-                0x00000200                __vector_offset_74 = DEFINED (__vector_dispatch_74)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_74 = DEFINED (__vector_dispatch_74)?(. - _ebase_address):__vector_offset_default
  *(.vector_74)
-                0x00000200                __vector_offset_75 = DEFINED (__vector_dispatch_75)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_75 = DEFINED (__vector_dispatch_75)?(. - _ebase_address):__vector_offset_default
  *(.vector_75)
-                0x00000200                __vector_offset_76 = DEFINED (__vector_dispatch_76)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_76 = DEFINED (__vector_dispatch_76)?(. - _ebase_address):__vector_offset_default
  *(.vector_76)
-                0x00000200                __vector_offset_77 = DEFINED (__vector_dispatch_77)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_77 = DEFINED (__vector_dispatch_77)?(. - _ebase_address):__vector_offset_default
  *(.vector_77)
-                0x00000200                __vector_offset_78 = DEFINED (__vector_dispatch_78)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_78 = DEFINED (__vector_dispatch_78)?(. - _ebase_address):__vector_offset_default
  *(.vector_78)
-                0x00000200                __vector_offset_79 = DEFINED (__vector_dispatch_79)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_79 = DEFINED (__vector_dispatch_79)?(. - _ebase_address):__vector_offset_default
  *(.vector_79)
-                0x00000200                __vector_offset_80 = DEFINED (__vector_dispatch_80)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_80 = DEFINED (__vector_dispatch_80)?(. - _ebase_address):__vector_offset_default
  *(.vector_80)
-                0x00000200                __vector_offset_81 = DEFINED (__vector_dispatch_81)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_81 = DEFINED (__vector_dispatch_81)?(. - _ebase_address):__vector_offset_default
  *(.vector_81)
-                0x00000200                __vector_offset_82 = DEFINED (__vector_dispatch_82)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_82 = DEFINED (__vector_dispatch_82)?(. - _ebase_address):__vector_offset_default
  *(.vector_82)
-                0x00000200                __vector_offset_83 = DEFINED (__vector_dispatch_83)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_83 = DEFINED (__vector_dispatch_83)?(. - _ebase_address):__vector_offset_default
  *(.vector_83)
-                0x00000200                __vector_offset_84 = DEFINED (__vector_dispatch_84)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_84 = DEFINED (__vector_dispatch_84)?(. - _ebase_address):__vector_offset_default
  *(.vector_84)
-                0x00000200                __vector_offset_85 = DEFINED (__vector_dispatch_85)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_85 = DEFINED (__vector_dispatch_85)?(. - _ebase_address):__vector_offset_default
  *(.vector_85)
-                0x00000200                __vector_offset_86 = DEFINED (__vector_dispatch_86)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_86 = DEFINED (__vector_dispatch_86)?(. - _ebase_address):__vector_offset_default
  *(.vector_86)
-                0x00000200                __vector_offset_87 = DEFINED (__vector_dispatch_87)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_87 = DEFINED (__vector_dispatch_87)?(. - _ebase_address):__vector_offset_default
  *(.vector_87)
-                0x00000200                __vector_offset_88 = DEFINED (__vector_dispatch_88)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_88 = DEFINED (__vector_dispatch_88)?(. - _ebase_address):__vector_offset_default
  *(.vector_88)
-                0x00000200                __vector_offset_89 = DEFINED (__vector_dispatch_89)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_89 = DEFINED (__vector_dispatch_89)?(. - _ebase_address):__vector_offset_default
  *(.vector_89)
-                0x00000200                __vector_offset_90 = DEFINED (__vector_dispatch_90)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_90 = DEFINED (__vector_dispatch_90)?(. - _ebase_address):__vector_offset_default
  *(.vector_90)
-                0x00000200                __vector_offset_91 = DEFINED (__vector_dispatch_91)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_91 = DEFINED (__vector_dispatch_91)?(. - _ebase_address):__vector_offset_default
  *(.vector_91)
-                0x00000200                __vector_offset_92 = DEFINED (__vector_dispatch_92)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_92 = DEFINED (__vector_dispatch_92)?(. - _ebase_address):__vector_offset_default
  *(.vector_92)
-                0x00000200                __vector_offset_93 = DEFINED (__vector_dispatch_93)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_93 = DEFINED (__vector_dispatch_93)?(. - _ebase_address):__vector_offset_default
  *(.vector_93)
-                0x00000200                __vector_offset_94 = DEFINED (__vector_dispatch_94)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_94 = DEFINED (__vector_dispatch_94)?(. - _ebase_address):__vector_offset_default
  *(.vector_94)
-                0x00000200                __vector_offset_95 = DEFINED (__vector_dispatch_95)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_95 = DEFINED (__vector_dispatch_95)?(. - _ebase_address):__vector_offset_default
  *(.vector_95)
-                0x00000200                __vector_offset_96 = DEFINED (__vector_dispatch_96)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_96 = DEFINED (__vector_dispatch_96)?(. - _ebase_address):__vector_offset_default
  *(.vector_96)
-                0x00000200                __vector_offset_97 = DEFINED (__vector_dispatch_97)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_97 = DEFINED (__vector_dispatch_97)?(. - _ebase_address):__vector_offset_default
  *(.vector_97)
-                0x00000200                __vector_offset_98 = DEFINED (__vector_dispatch_98)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_98 = DEFINED (__vector_dispatch_98)?(. - _ebase_address):__vector_offset_default
  *(.vector_98)
-                0x00000200                __vector_offset_99 = DEFINED (__vector_dispatch_99)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_99 = DEFINED (__vector_dispatch_99)?(. - _ebase_address):__vector_offset_default
  *(.vector_99)
-                0x00000200                __vector_offset_100 = DEFINED (__vector_dispatch_100)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_100 = DEFINED (__vector_dispatch_100)?(. - _ebase_address):__vector_offset_default
  *(.vector_100)
-                0x00000200                __vector_offset_101 = DEFINED (__vector_dispatch_101)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_101 = DEFINED (__vector_dispatch_101)?(. - _ebase_address):__vector_offset_default
  *(.vector_101)
-                0x00000200                __vector_offset_102 = DEFINED (__vector_dispatch_102)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_102 = DEFINED (__vector_dispatch_102)?(. - _ebase_address):__vector_offset_default
  *(.vector_102)
-                0x00000200                __vector_offset_103 = DEFINED (__vector_dispatch_103)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_103 = DEFINED (__vector_dispatch_103)?(. - _ebase_address):__vector_offset_default
  *(.vector_103)
-                0x00000200                __vector_offset_104 = DEFINED (__vector_dispatch_104)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_104 = DEFINED (__vector_dispatch_104)?(. - _ebase_address):__vector_offset_default
  *(.vector_104)
-                0x00000200                __vector_offset_105 = DEFINED (__vector_dispatch_105)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_105 = DEFINED (__vector_dispatch_105)?(. - _ebase_address):__vector_offset_default
  *(.vector_105)
-                0x00000200                __vector_offset_106 = DEFINED (__vector_dispatch_106)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_106 = DEFINED (__vector_dispatch_106)?(. - _ebase_address):__vector_offset_default
  *(.vector_106)
-                0x00000200                __vector_offset_107 = DEFINED (__vector_dispatch_107)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_107 = DEFINED (__vector_dispatch_107)?(. - _ebase_address):__vector_offset_default
  *(.vector_107)
-                0x00000200                __vector_offset_108 = DEFINED (__vector_dispatch_108)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_108 = DEFINED (__vector_dispatch_108)?(. - _ebase_address):__vector_offset_default
  *(.vector_108)
-                0x00000200                __vector_offset_109 = DEFINED (__vector_dispatch_109)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_109 = DEFINED (__vector_dispatch_109)?(. - _ebase_address):__vector_offset_default
  *(.vector_109)
-                0x00000200                __vector_offset_110 = DEFINED (__vector_dispatch_110)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_110 = DEFINED (__vector_dispatch_110)?(. - _ebase_address):__vector_offset_default
  *(.vector_110)
-                0x00000200                __vector_offset_111 = DEFINED (__vector_dispatch_111)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_111 = DEFINED (__vector_dispatch_111)?(. - _ebase_address):__vector_offset_default
  *(.vector_111)
-                0x00000200                __vector_offset_112 = DEFINED (__vector_dispatch_112)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_112 = DEFINED (__vector_dispatch_112)?(. - _ebase_address):__vector_offset_default
  *(.vector_112)
-                0x00000200                __vector_offset_113 = DEFINED (__vector_dispatch_113)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_113 = DEFINED (__vector_dispatch_113)?(. - _ebase_address):__vector_offset_default
  *(.vector_113)
-                0x00000200                __vector_offset_114 = DEFINED (__vector_dispatch_114)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_114 = DEFINED (__vector_dispatch_114)?(. - _ebase_address):__vector_offset_default
  *(.vector_114)
-                0x00000200                __vector_offset_115 = DEFINED (__vector_dispatch_115)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_115 = DEFINED (__vector_dispatch_115)?(. - _ebase_address):__vector_offset_default
  *(.vector_115)
-                0x00000200                __vector_offset_116 = DEFINED (__vector_dispatch_116)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_116 = DEFINED (__vector_dispatch_116)?(. - _ebase_address):__vector_offset_default
  *(.vector_116)
-                0x00000200                __vector_offset_117 = DEFINED (__vector_dispatch_117)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_117 = DEFINED (__vector_dispatch_117)?(. - _ebase_address):__vector_offset_default
  *(.vector_117)
-                0x00000200                __vector_offset_118 = DEFINED (__vector_dispatch_118)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_118 = DEFINED (__vector_dispatch_118)?(. - _ebase_address):__vector_offset_default
  *(.vector_118)
-                0x00000200                __vector_offset_119 = DEFINED (__vector_dispatch_119)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_119 = DEFINED (__vector_dispatch_119)?(. - _ebase_address):__vector_offset_default
  *(.vector_119)
-                0x00000200                __vector_offset_120 = DEFINED (__vector_dispatch_120)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_120 = DEFINED (__vector_dispatch_120)?(. - _ebase_address):__vector_offset_default
  *(.vector_120)
-                0x00000200                __vector_offset_121 = DEFINED (__vector_dispatch_121)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_121 = DEFINED (__vector_dispatch_121)?(. - _ebase_address):__vector_offset_default
  *(.vector_121)
-                0x00000200                __vector_offset_122 = DEFINED (__vector_dispatch_122)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_122 = DEFINED (__vector_dispatch_122)?(. - _ebase_address):__vector_offset_default
  *(.vector_122)
-                0x00000200                __vector_offset_123 = DEFINED (__vector_dispatch_123)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_123 = DEFINED (__vector_dispatch_123)?(. - _ebase_address):__vector_offset_default
  *(.vector_123)
-                0x00000200                __vector_offset_124 = DEFINED (__vector_dispatch_124)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_124 = DEFINED (__vector_dispatch_124)?(. - _ebase_address):__vector_offset_default
  *(.vector_124)
-                0x00000200                __vector_offset_125 = DEFINED (__vector_dispatch_125)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_125 = DEFINED (__vector_dispatch_125)?(. - _ebase_address):__vector_offset_default
  *(.vector_125)
-                0x00000200                __vector_offset_126 = DEFINED (__vector_dispatch_126)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_126 = DEFINED (__vector_dispatch_126)?(. - _ebase_address):__vector_offset_default
  *(.vector_126)
-                0x00000200                __vector_offset_127 = DEFINED (__vector_dispatch_127)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_127 = DEFINED (__vector_dispatch_127)?(. - _ebase_address):__vector_offset_default
  *(.vector_127)
-                0x00000200                __vector_offset_128 = DEFINED (__vector_dispatch_128)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_128 = DEFINED (__vector_dispatch_128)?(. - _ebase_address):__vector_offset_default
  *(.vector_128)
-                0x00000200                __vector_offset_129 = DEFINED (__vector_dispatch_129)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_129 = DEFINED (__vector_dispatch_129)?(. - _ebase_address):__vector_offset_default
  *(.vector_129)
-                0x00000200                __vector_offset_130 = DEFINED (__vector_dispatch_130)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_130 = DEFINED (__vector_dispatch_130)?(. - _ebase_address):__vector_offset_default
  *(.vector_130)
-                0x00000200                __vector_offset_131 = DEFINED (__vector_dispatch_131)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_131 = DEFINED (__vector_dispatch_131)?(. - _ebase_address):__vector_offset_default
  *(.vector_131)
-                0x00000200                __vector_offset_132 = DEFINED (__vector_dispatch_132)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_132 = DEFINED (__vector_dispatch_132)?(. - _ebase_address):__vector_offset_default
  *(.vector_132)
-                0x00000200                __vector_offset_133 = DEFINED (__vector_dispatch_133)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_133 = DEFINED (__vector_dispatch_133)?(. - _ebase_address):__vector_offset_default
  *(.vector_133)
-                0x00000200                __vector_offset_134 = DEFINED (__vector_dispatch_134)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_134 = DEFINED (__vector_dispatch_134)?(. - _ebase_address):__vector_offset_default
  *(.vector_134)
-                0x00000200                __vector_offset_135 = DEFINED (__vector_dispatch_135)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_135 = DEFINED (__vector_dispatch_135)?(. - _ebase_address):__vector_offset_default
  *(.vector_135)
-                0x00000200                __vector_offset_136 = DEFINED (__vector_dispatch_136)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_136 = DEFINED (__vector_dispatch_136)?(. - _ebase_address):__vector_offset_default
  *(.vector_136)
-                0x00000200                __vector_offset_137 = DEFINED (__vector_dispatch_137)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_137 = DEFINED (__vector_dispatch_137)?(. - _ebase_address):__vector_offset_default
  *(.vector_137)
-                0x00000200                __vector_offset_138 = DEFINED (__vector_dispatch_138)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_138 = DEFINED (__vector_dispatch_138)?(. - _ebase_address):__vector_offset_default
  *(.vector_138)
-                0x00000200                __vector_offset_139 = DEFINED (__vector_dispatch_139)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_139 = DEFINED (__vector_dispatch_139)?(. - _ebase_address):__vector_offset_default
  *(.vector_139)
-                0x00000200                __vector_offset_140 = DEFINED (__vector_dispatch_140)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_140 = DEFINED (__vector_dispatch_140)?(. - _ebase_address):__vector_offset_default
  *(.vector_140)
-                0x00000200                __vector_offset_141 = DEFINED (__vector_dispatch_141)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_141 = DEFINED (__vector_dispatch_141)?(. - _ebase_address):__vector_offset_default
  *(.vector_141)
-                0x00000200                __vector_offset_142 = DEFINED (__vector_dispatch_142)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_142 = DEFINED (__vector_dispatch_142)?(. - _ebase_address):__vector_offset_default
  *(.vector_142)
-                0x00000200                __vector_offset_143 = DEFINED (__vector_dispatch_143)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_143 = DEFINED (__vector_dispatch_143)?(. - _ebase_address):__vector_offset_default
  *(.vector_143)
-                0x00000200                __vector_offset_144 = DEFINED (__vector_dispatch_144)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_144 = DEFINED (__vector_dispatch_144)?(. - _ebase_address):__vector_offset_default
  *(.vector_144)
-                0x00000200                __vector_offset_145 = DEFINED (__vector_dispatch_145)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_145 = DEFINED (__vector_dispatch_145)?(. - _ebase_address):__vector_offset_default
  *(.vector_145)
-                0x00000200                __vector_offset_146 = DEFINED (__vector_dispatch_146)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_146 = DEFINED (__vector_dispatch_146)?(. - _ebase_address):__vector_offset_default
  *(.vector_146)
-                0x00000200                __vector_offset_147 = DEFINED (__vector_dispatch_147)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_147 = DEFINED (__vector_dispatch_147)?(. - _ebase_address):__vector_offset_default
  *(.vector_147)
-                0x00000200                __vector_offset_148 = DEFINED (__vector_dispatch_148)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_148 = DEFINED (__vector_dispatch_148)?(. - _ebase_address):__vector_offset_default
  *(.vector_148)
-                0x00000200                __vector_offset_149 = DEFINED (__vector_dispatch_149)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_149 = DEFINED (__vector_dispatch_149)?(. - _ebase_address):__vector_offset_default
  *(.vector_149)
-                0x00000200                __vector_offset_150 = DEFINED (__vector_dispatch_150)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_150 = DEFINED (__vector_dispatch_150)?(. - _ebase_address):__vector_offset_default
  *(.vector_150)
-                0x00000200                __vector_offset_151 = DEFINED (__vector_dispatch_151)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_151 = DEFINED (__vector_dispatch_151)?(. - _ebase_address):__vector_offset_default
  *(.vector_151)
-                0x00000200                __vector_offset_152 = DEFINED (__vector_dispatch_152)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_152 = DEFINED (__vector_dispatch_152)?(. - _ebase_address):__vector_offset_default
  *(.vector_152)
-                0x00000200                __vector_offset_153 = DEFINED (__vector_dispatch_153)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_153 = DEFINED (__vector_dispatch_153)?(. - _ebase_address):__vector_offset_default
  *(.vector_153)
-                0x00000200                __vector_offset_154 = DEFINED (__vector_dispatch_154)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_154 = DEFINED (__vector_dispatch_154)?(. - _ebase_address):__vector_offset_default
  *(.vector_154)
-                0x00000200                __vector_offset_155 = DEFINED (__vector_dispatch_155)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_155 = DEFINED (__vector_dispatch_155)?(. - _ebase_address):__vector_offset_default
  *(.vector_155)
-                0x00000200                __vector_offset_156 = DEFINED (__vector_dispatch_156)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_156 = DEFINED (__vector_dispatch_156)?(. - _ebase_address):__vector_offset_default
  *(.vector_156)
-                0x00000200                __vector_offset_157 = DEFINED (__vector_dispatch_157)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_157 = DEFINED (__vector_dispatch_157)?(. - _ebase_address):__vector_offset_default
  *(.vector_157)
-                0x00000200                __vector_offset_158 = DEFINED (__vector_dispatch_158)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_158 = DEFINED (__vector_dispatch_158)?(. - _ebase_address):__vector_offset_default
  *(.vector_158)
-                0x00000200                __vector_offset_159 = DEFINED (__vector_dispatch_159)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_159 = DEFINED (__vector_dispatch_159)?(. - _ebase_address):__vector_offset_default
  *(.vector_159)
-                0x00000200                __vector_offset_160 = DEFINED (__vector_dispatch_160)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_160 = DEFINED (__vector_dispatch_160)?(. - _ebase_address):__vector_offset_default
  *(.vector_160)
-                0x00000200                __vector_offset_161 = DEFINED (__vector_dispatch_161)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_161 = DEFINED (__vector_dispatch_161)?(. - _ebase_address):__vector_offset_default
  *(.vector_161)
-                0x00000200                __vector_offset_162 = DEFINED (__vector_dispatch_162)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_162 = DEFINED (__vector_dispatch_162)?(. - _ebase_address):__vector_offset_default
  *(.vector_162)
-                0x00000200                __vector_offset_163 = DEFINED (__vector_dispatch_163)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_163 = DEFINED (__vector_dispatch_163)?(. - _ebase_address):__vector_offset_default
  *(.vector_163)
-                0x00000200                __vector_offset_164 = DEFINED (__vector_dispatch_164)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_164 = DEFINED (__vector_dispatch_164)?(. - _ebase_address):__vector_offset_default
  *(.vector_164)
-                0x00000200                __vector_offset_165 = DEFINED (__vector_dispatch_165)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_165 = DEFINED (__vector_dispatch_165)?(. - _ebase_address):__vector_offset_default
  *(.vector_165)
-                0x00000200                __vector_offset_166 = DEFINED (__vector_dispatch_166)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_166 = DEFINED (__vector_dispatch_166)?(. - _ebase_address):__vector_offset_default
  *(.vector_166)
-                0x00000200                __vector_offset_167 = DEFINED (__vector_dispatch_167)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_167 = DEFINED (__vector_dispatch_167)?(. - _ebase_address):__vector_offset_default
  *(.vector_167)
-                0x00000200                __vector_offset_168 = DEFINED (__vector_dispatch_168)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_168 = DEFINED (__vector_dispatch_168)?(. - _ebase_address):__vector_offset_default
  *(.vector_168)
-                0x00000200                __vector_offset_169 = DEFINED (__vector_dispatch_169)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_169 = DEFINED (__vector_dispatch_169)?(. - _ebase_address):__vector_offset_default
  *(.vector_169)
-                0x00000200                __vector_offset_170 = DEFINED (__vector_dispatch_170)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_170 = DEFINED (__vector_dispatch_170)?(. - _ebase_address):__vector_offset_default
  *(.vector_170)
-                0x00000200                __vector_offset_171 = DEFINED (__vector_dispatch_171)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_171 = DEFINED (__vector_dispatch_171)?(. - _ebase_address):__vector_offset_default
  *(.vector_171)
-                0x00000200                __vector_offset_172 = DEFINED (__vector_dispatch_172)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_172 = DEFINED (__vector_dispatch_172)?(. - _ebase_address):__vector_offset_default
  *(.vector_172)
-                0x00000200                __vector_offset_173 = DEFINED (__vector_dispatch_173)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_173 = DEFINED (__vector_dispatch_173)?(. - _ebase_address):__vector_offset_default
  *(.vector_173)
-                0x00000200                __vector_offset_174 = DEFINED (__vector_dispatch_174)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_174 = DEFINED (__vector_dispatch_174)?(. - _ebase_address):__vector_offset_default
  *(.vector_174)
-                0x00000200                __vector_offset_175 = DEFINED (__vector_dispatch_175)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_175 = DEFINED (__vector_dispatch_175)?(. - _ebase_address):__vector_offset_default
  *(.vector_175)
-                0x00000200                __vector_offset_176 = DEFINED (__vector_dispatch_176)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_176 = DEFINED (__vector_dispatch_176)?(. - _ebase_address):__vector_offset_default
  *(.vector_176)
-                0x00000200                __vector_offset_177 = DEFINED (__vector_dispatch_177)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_177 = DEFINED (__vector_dispatch_177)?(. - _ebase_address):__vector_offset_default
  *(.vector_177)
-                0x00000200                __vector_offset_178 = DEFINED (__vector_dispatch_178)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_178 = DEFINED (__vector_dispatch_178)?(. - _ebase_address):__vector_offset_default
  *(.vector_178)
-                0x00000200                __vector_offset_179 = DEFINED (__vector_dispatch_179)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_179 = DEFINED (__vector_dispatch_179)?(. - _ebase_address):__vector_offset_default
  *(.vector_179)
-                0x00000200                __vector_offset_180 = DEFINED (__vector_dispatch_180)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_180 = DEFINED (__vector_dispatch_180)?(. - _ebase_address):__vector_offset_default
  *(.vector_180)
-                0x00000200                __vector_offset_181 = DEFINED (__vector_dispatch_181)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_181 = DEFINED (__vector_dispatch_181)?(. - _ebase_address):__vector_offset_default
  *(.vector_181)
-                0x00000200                __vector_offset_182 = DEFINED (__vector_dispatch_182)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_182 = DEFINED (__vector_dispatch_182)?(. - _ebase_address):__vector_offset_default
  *(.vector_182)
-                0x00000200                __vector_offset_183 = DEFINED (__vector_dispatch_183)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_183 = DEFINED (__vector_dispatch_183)?(. - _ebase_address):__vector_offset_default
  *(.vector_183)
-                0x00000200                __vector_offset_184 = DEFINED (__vector_dispatch_184)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_184 = DEFINED (__vector_dispatch_184)?(. - _ebase_address):__vector_offset_default
  *(.vector_184)
-                0x00000200                __vector_offset_185 = DEFINED (__vector_dispatch_185)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_185 = DEFINED (__vector_dispatch_185)?(. - _ebase_address):__vector_offset_default
  *(.vector_185)
-                0x00000200                __vector_offset_186 = DEFINED (__vector_dispatch_186)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_186 = DEFINED (__vector_dispatch_186)?(. - _ebase_address):__vector_offset_default
  *(.vector_186)
-                0x00000200                __vector_offset_187 = DEFINED (__vector_dispatch_187)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_187 = DEFINED (__vector_dispatch_187)?(. - _ebase_address):__vector_offset_default
  *(.vector_187)
-                0x00000200                __vector_offset_188 = DEFINED (__vector_dispatch_188)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_188 = DEFINED (__vector_dispatch_188)?(. - _ebase_address):__vector_offset_default
  *(.vector_188)
-                0x00000200                __vector_offset_189 = DEFINED (__vector_dispatch_189)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_189 = DEFINED (__vector_dispatch_189)?(. - _ebase_address):__vector_offset_default
  *(.vector_189)
-                0x00000200                __vector_offset_190 = DEFINED (__vector_dispatch_190)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_190 = DEFINED (__vector_dispatch_190)?(. - _ebase_address):__vector_offset_default
  *(.vector_190)
-                0x00000200                __vector_offset_191 = DEFINED (__vector_dispatch_191)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_191 = DEFINED (__vector_dispatch_191)?(. - _ebase_address):__vector_offset_default
  *(.vector_191)
-                0x00000200                __vector_offset_192 = DEFINED (__vector_dispatch_192)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_192 = DEFINED (__vector_dispatch_192)?(. - _ebase_address):__vector_offset_default
  *(.vector_192)
-                0x00000200                __vector_offset_193 = DEFINED (__vector_dispatch_193)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_193 = DEFINED (__vector_dispatch_193)?(. - _ebase_address):__vector_offset_default
  *(.vector_193)
-                0x00000200                __vector_offset_194 = DEFINED (__vector_dispatch_194)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_194 = DEFINED (__vector_dispatch_194)?(. - _ebase_address):__vector_offset_default
  *(.vector_194)
-                0x00000200                __vector_offset_195 = DEFINED (__vector_dispatch_195)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_195 = DEFINED (__vector_dispatch_195)?(. - _ebase_address):__vector_offset_default
  *(.vector_195)
-                0x00000200                __vector_offset_196 = DEFINED (__vector_dispatch_196)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_196 = DEFINED (__vector_dispatch_196)?(. - _ebase_address):__vector_offset_default
  *(.vector_196)
-                0x00000200                __vector_offset_197 = DEFINED (__vector_dispatch_197)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_197 = DEFINED (__vector_dispatch_197)?(. - _ebase_address):__vector_offset_default
  *(.vector_197)
-                0x00000200                __vector_offset_198 = DEFINED (__vector_dispatch_198)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_198 = DEFINED (__vector_dispatch_198)?(. - _ebase_address):__vector_offset_default
  *(.vector_198)
-                0x00000200                __vector_offset_199 = DEFINED (__vector_dispatch_199)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_199 = DEFINED (__vector_dispatch_199)?(. - _ebase_address):__vector_offset_default
  *(.vector_199)
-                0x00000200                __vector_offset_200 = DEFINED (__vector_dispatch_200)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_200 = DEFINED (__vector_dispatch_200)?(. - _ebase_address):__vector_offset_default
  *(.vector_200)
-                0x00000200                __vector_offset_201 = DEFINED (__vector_dispatch_201)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_201 = DEFINED (__vector_dispatch_201)?(. - _ebase_address):__vector_offset_default
  *(.vector_201)
-                0x00000200                __vector_offset_202 = DEFINED (__vector_dispatch_202)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_202 = DEFINED (__vector_dispatch_202)?(. - _ebase_address):__vector_offset_default
  *(.vector_202)
-                0x00000200                __vector_offset_203 = DEFINED (__vector_dispatch_203)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_203 = DEFINED (__vector_dispatch_203)?(. - _ebase_address):__vector_offset_default
  *(.vector_203)
-                0x00000200                __vector_offset_204 = DEFINED (__vector_dispatch_204)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_204 = DEFINED (__vector_dispatch_204)?(. - _ebase_address):__vector_offset_default
  *(.vector_204)
-                0x00000200                __vector_offset_205 = DEFINED (__vector_dispatch_205)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_205 = DEFINED (__vector_dispatch_205)?(. - _ebase_address):__vector_offset_default
  *(.vector_205)
-                0x00000200                __vector_offset_206 = DEFINED (__vector_dispatch_206)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_206 = DEFINED (__vector_dispatch_206)?(. - _ebase_address):__vector_offset_default
  *(.vector_206)
-                0x00000200                __vector_offset_207 = DEFINED (__vector_dispatch_207)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_207 = DEFINED (__vector_dispatch_207)?(. - _ebase_address):__vector_offset_default
  *(.vector_207)
-                0x00000200                __vector_offset_208 = DEFINED (__vector_dispatch_208)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_208 = DEFINED (__vector_dispatch_208)?(. - _ebase_address):__vector_offset_default
  *(.vector_208)
-                0x00000200                __vector_offset_209 = DEFINED (__vector_dispatch_209)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_209 = DEFINED (__vector_dispatch_209)?(. - _ebase_address):__vector_offset_default
  *(.vector_209)
-                0x00000200                __vector_offset_210 = DEFINED (__vector_dispatch_210)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_210 = DEFINED (__vector_dispatch_210)?(. - _ebase_address):__vector_offset_default
  *(.vector_210)
-                0x00000200                __vector_offset_211 = DEFINED (__vector_dispatch_211)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_211 = DEFINED (__vector_dispatch_211)?(. - _ebase_address):__vector_offset_default
  *(.vector_211)
-                0x00000200                __vector_offset_212 = DEFINED (__vector_dispatch_212)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_212 = DEFINED (__vector_dispatch_212)?(. - _ebase_address):__vector_offset_default
  *(.vector_212)
-                0x00000200                __vector_offset_213 = DEFINED (__vector_dispatch_213)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_213 = DEFINED (__vector_dispatch_213)?(. - _ebase_address):__vector_offset_default
  *(.vector_213)
-                0x00000200                __vector_offset_214 = DEFINED (__vector_dispatch_214)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_214 = DEFINED (__vector_dispatch_214)?(. - _ebase_address):__vector_offset_default
  *(.vector_214)
-                0x00000200                __vector_offset_215 = DEFINED (__vector_dispatch_215)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_215 = DEFINED (__vector_dispatch_215)?(. - _ebase_address):__vector_offset_default
  *(.vector_215)
-                0x00000200                __vector_offset_216 = DEFINED (__vector_dispatch_216)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_216 = DEFINED (__vector_dispatch_216)?(. - _ebase_address):__vector_offset_default
  *(.vector_216)
-                0x00000200                __vector_offset_217 = DEFINED (__vector_dispatch_217)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_217 = DEFINED (__vector_dispatch_217)?(. - _ebase_address):__vector_offset_default
  *(.vector_217)
-                0x00000200                __vector_offset_218 = DEFINED (__vector_dispatch_218)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_218 = DEFINED (__vector_dispatch_218)?(. - _ebase_address):__vector_offset_default
  *(.vector_218)
-                0x00000200                __vector_offset_219 = DEFINED (__vector_dispatch_219)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_219 = DEFINED (__vector_dispatch_219)?(. - _ebase_address):__vector_offset_default
  *(.vector_219)
-                0x00000200                __vector_offset_220 = DEFINED (__vector_dispatch_220)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_220 = DEFINED (__vector_dispatch_220)?(. - _ebase_address):__vector_offset_default
  *(.vector_220)
-                0x00000200                __vector_offset_221 = DEFINED (__vector_dispatch_221)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_221 = DEFINED (__vector_dispatch_221)?(. - _ebase_address):__vector_offset_default
  *(.vector_221)
-                0x00000200                __vector_offset_222 = DEFINED (__vector_dispatch_222)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_222 = DEFINED (__vector_dispatch_222)?(. - _ebase_address):__vector_offset_default
  *(.vector_222)
-                0x00000200                __vector_offset_223 = DEFINED (__vector_dispatch_223)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_223 = DEFINED (__vector_dispatch_223)?(. - _ebase_address):__vector_offset_default
  *(.vector_223)
-                0x00000200                __vector_offset_224 = DEFINED (__vector_dispatch_224)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_224 = DEFINED (__vector_dispatch_224)?(. - _ebase_address):__vector_offset_default
  *(.vector_224)
-                0x00000200                __vector_offset_225 = DEFINED (__vector_dispatch_225)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_225 = DEFINED (__vector_dispatch_225)?(. - _ebase_address):__vector_offset_default
  *(.vector_225)
-                0x00000200                __vector_offset_226 = DEFINED (__vector_dispatch_226)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_226 = DEFINED (__vector_dispatch_226)?(. - _ebase_address):__vector_offset_default
  *(.vector_226)
-                0x00000200                __vector_offset_227 = DEFINED (__vector_dispatch_227)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_227 = DEFINED (__vector_dispatch_227)?(. - _ebase_address):__vector_offset_default
  *(.vector_227)
-                0x00000200                __vector_offset_228 = DEFINED (__vector_dispatch_228)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_228 = DEFINED (__vector_dispatch_228)?(. - _ebase_address):__vector_offset_default
  *(.vector_228)
-                0x00000200                __vector_offset_229 = DEFINED (__vector_dispatch_229)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_229 = DEFINED (__vector_dispatch_229)?(. - _ebase_address):__vector_offset_default
  *(.vector_229)
-                0x00000200                __vector_offset_230 = DEFINED (__vector_dispatch_230)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_230 = DEFINED (__vector_dispatch_230)?(. - _ebase_address):__vector_offset_default
  *(.vector_230)
-                0x00000200                __vector_offset_231 = DEFINED (__vector_dispatch_231)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_231 = DEFINED (__vector_dispatch_231)?(. - _ebase_address):__vector_offset_default
  *(.vector_231)
-                0x00000200                __vector_offset_232 = DEFINED (__vector_dispatch_232)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_232 = DEFINED (__vector_dispatch_232)?(. - _ebase_address):__vector_offset_default
  *(.vector_232)
-                0x00000200                __vector_offset_233 = DEFINED (__vector_dispatch_233)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_233 = DEFINED (__vector_dispatch_233)?(. - _ebase_address):__vector_offset_default
  *(.vector_233)
-                0x00000200                __vector_offset_234 = DEFINED (__vector_dispatch_234)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_234 = DEFINED (__vector_dispatch_234)?(. - _ebase_address):__vector_offset_default
  *(.vector_234)
-                0x00000200                __vector_offset_235 = DEFINED (__vector_dispatch_235)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_235 = DEFINED (__vector_dispatch_235)?(. - _ebase_address):__vector_offset_default
  *(.vector_235)
-                0x00000200                __vector_offset_236 = DEFINED (__vector_dispatch_236)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_236 = DEFINED (__vector_dispatch_236)?(. - _ebase_address):__vector_offset_default
  *(.vector_236)
-                0x00000200                __vector_offset_237 = DEFINED (__vector_dispatch_237)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_237 = DEFINED (__vector_dispatch_237)?(. - _ebase_address):__vector_offset_default
  *(.vector_237)
-                0x00000200                __vector_offset_238 = DEFINED (__vector_dispatch_238)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_238 = DEFINED (__vector_dispatch_238)?(. - _ebase_address):__vector_offset_default
  *(.vector_238)
-                0x00000200                __vector_offset_239 = DEFINED (__vector_dispatch_239)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_239 = DEFINED (__vector_dispatch_239)?(. - _ebase_address):__vector_offset_default
  *(.vector_239)
-                0x00000200                __vector_offset_240 = DEFINED (__vector_dispatch_240)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_240 = DEFINED (__vector_dispatch_240)?(. - _ebase_address):__vector_offset_default
  *(.vector_240)
-                0x00000200                __vector_offset_241 = DEFINED (__vector_dispatch_241)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_241 = DEFINED (__vector_dispatch_241)?(. - _ebase_address):__vector_offset_default
  *(.vector_241)
-                0x00000200                __vector_offset_242 = DEFINED (__vector_dispatch_242)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_242 = DEFINED (__vector_dispatch_242)?(. - _ebase_address):__vector_offset_default
  *(.vector_242)
-                0x00000200                __vector_offset_243 = DEFINED (__vector_dispatch_243)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_243 = DEFINED (__vector_dispatch_243)?(. - _ebase_address):__vector_offset_default
  *(.vector_243)
-                0x00000200                __vector_offset_244 = DEFINED (__vector_dispatch_244)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_244 = DEFINED (__vector_dispatch_244)?(. - _ebase_address):__vector_offset_default
  *(.vector_244)
-                0x00000200                __vector_offset_245 = DEFINED (__vector_dispatch_245)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_245 = DEFINED (__vector_dispatch_245)?(. - _ebase_address):__vector_offset_default
  *(.vector_245)
-                0x00000200                __vector_offset_246 = DEFINED (__vector_dispatch_246)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_246 = DEFINED (__vector_dispatch_246)?(. - _ebase_address):__vector_offset_default
  *(.vector_246)
-                0x00000200                __vector_offset_247 = DEFINED (__vector_dispatch_247)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_247 = DEFINED (__vector_dispatch_247)?(. - _ebase_address):__vector_offset_default
  *(.vector_247)
-                0x00000200                __vector_offset_248 = DEFINED (__vector_dispatch_248)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_248 = DEFINED (__vector_dispatch_248)?(. - _ebase_address):__vector_offset_default
  *(.vector_248)
-                0x00000200                __vector_offset_249 = DEFINED (__vector_dispatch_249)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_249 = DEFINED (__vector_dispatch_249)?(. - _ebase_address):__vector_offset_default
  *(.vector_249)
-                0x00000200                __vector_offset_250 = DEFINED (__vector_dispatch_250)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_250 = DEFINED (__vector_dispatch_250)?(. - _ebase_address):__vector_offset_default
  *(.vector_250)
-                0x00000200                __vector_offset_251 = DEFINED (__vector_dispatch_251)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_251 = DEFINED (__vector_dispatch_251)?(. - _ebase_address):__vector_offset_default
  *(.vector_251)
-                0x00000200                __vector_offset_252 = DEFINED (__vector_dispatch_252)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_252 = DEFINED (__vector_dispatch_252)?(. - _ebase_address):__vector_offset_default
  *(.vector_252)
-                0x00000200                __vector_offset_253 = DEFINED (__vector_dispatch_253)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_253 = DEFINED (__vector_dispatch_253)?(. - _ebase_address):__vector_offset_default
  *(.vector_253)
-                0x00000200                __vector_offset_254 = DEFINED (__vector_dispatch_254)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_254 = DEFINED (__vector_dispatch_254)?(. - _ebase_address):__vector_offset_default
  *(.vector_254)
-                0x00000200                __vector_offset_255 = DEFINED (__vector_dispatch_255)?(. - _ebase_address):__vector_offset_default
+                0x00000208                __vector_offset_255 = DEFINED (__vector_dispatch_255)?(. - _ebase_address):__vector_offset_default
  *(.vector_255)
-                0x00000200                __vector_offset_default = (. - _ebase_address)
+                0x00000208                __vector_offset_default = (. - _ebase_address)
  *(.vector_default)
  .vector_default
-                0x9d000200       0x48 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
-                0x9d000200                _DefaultInterrupt
+                0x9d000208       0x48 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
+                0x9d000208                _DefaultInterrupt
 
 .startup
  *(.startup)
 
-.text           0x9d000248        0x0
+.text           0x9d000250        0x0
  *(.stub .gnu.linkonce.t.*)
  *(.text.*personality*)
  *(.mips16.fn.*)
  *(.mips16.call.*)
  *(.gnu.warning)
-                0x9d000248                . = ALIGN (0x4)
+                0x9d000250                . = ALIGN (0x4)
 
-.init           0x9d000248        0x0
+.init           0x9d000250        0x0
  *crti.o(.init)
  *crtbegin.o(.init)
  *(EXCLUDE_FILE(*crtn.o *crtend?.o *crtend.o) .init)
  *crtend.o(.init)
  *crtn.o(.init)
-                0x9d000248                . = ALIGN (0x4)
+                0x9d000250                . = ALIGN (0x4)
 
-.fini           0x9d000248        0x0
+.fini           0x9d000250        0x0
  *(.fini)
-                0x9d000248                . = ALIGN (0x4)
+                0x9d000250                . = ALIGN (0x4)
 
-.preinit_array  0x9d000248        0x0
-                0x9d000248                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x9d000250        0x0
+                0x9d000250                PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
-                0x9d000248                PROVIDE (__preinit_array_end, .)
-                0x9d000248                . = ALIGN (0x4)
+                0x9d000250                PROVIDE (__preinit_array_end, .)
+                0x9d000250                . = ALIGN (0x4)
 
-.init_array     0x9d000248        0x0
-                0x9d000248                PROVIDE (__init_array_start, .)
+.init_array     0x9d000250        0x0
+                0x9d000250                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array)
-                0x9d000248                PROVIDE (__init_array_end, .)
-                0x9d000248                . = ALIGN (0x4)
+                0x9d000250                PROVIDE (__init_array_end, .)
+                0x9d000250                . = ALIGN (0x4)
 
-.fini_array     0x9d000248        0x0
-                0x9d000248                PROVIDE (__fini_array_start, .)
+.fini_array     0x9d000250        0x0
+                0x9d000250                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array)
-                0x9d000248                PROVIDE (__fini_array_end, .)
-                0x9d000248                . = ALIGN (0x4)
+                0x9d000250                PROVIDE (__fini_array_end, .)
+                0x9d000250                . = ALIGN (0x4)
 
-.ctors          0x9d000248        0x0
+.ctors          0x9d000250        0x0
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x9d000248                . = ALIGN (0x4)
+                0x9d000250                . = ALIGN (0x4)
 
-.dtors          0x9d000248        0x0
+.dtors          0x9d000250        0x0
  *crtbegin.o(.dtors)
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x9d000248                . = ALIGN (0x4)
+                0x9d000250                . = ALIGN (0x4)
 
-.rodata         0x9d000248        0x0
+.rodata         0x9d000250        0x0
  *(.gnu.linkonce.r.*)
  *(.rodata1)
-                0x9d000248                . = ALIGN (0x4)
+                0x9d000250                . = ALIGN (0x4)
 
 .sdata2         0x9fc004b0        0x0
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
@@ -1528,61 +1536,67 @@ END GROUP
  *(.got)
                 0x80000380                . = ALIGN (0x4)
 
-.sdata          0x80000380       0x2c
+.sdata          0x80000380       0x30
                 0x80000380                _sdata_begin = .
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x80000380       0x24 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(pic32_init_cache.o)
-                0x80000380                __pic32_icache_size
-                0x80000384                __pic32_icache_linesize
-                0x80000388                __pic32_icache_ways
-                0x8000038c                __pic32_dcache_size
-                0x80000390                __pic32_dcache_linesize
-                0x80000394                __pic32_dcache_ways
-                0x80000398                __pic32_scache_size
-                0x8000039c                __pic32_scache_linesize
-                0x800003a0                __pic32_scache_ways
- .sdata         0x800003a4        0x4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
-                0x800003a4                _libc_data
- .sdata         0x800003a8        0x4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(xc32_uart.o)
-                0x800003a8                __XC_UART
-                0x800003ac                . = ALIGN (0x4)
-                0x800003ac                _sdata_end = .
+ .sdata         0x80000380        0x4 build/default/debug/mini_caps.o
+                0x80000380                offset_screen_max
+ .sdata         0x80000384       0x24 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(pic32_init_cache.o)
+                0x80000384                __pic32_icache_size
+                0x80000388                __pic32_icache_linesize
+                0x8000038c                __pic32_icache_ways
+                0x80000390                __pic32_dcache_size
+                0x80000394                __pic32_dcache_linesize
+                0x80000398                __pic32_dcache_ways
+                0x8000039c                __pic32_scache_size
+                0x800003a0                __pic32_scache_linesize
+                0x800003a4                __pic32_scache_ways
+ .sdata         0x800003a8        0x4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
+                0x800003a8                _libc_data
+ .sdata         0x800003ac        0x4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(xc32_uart.o)
+                0x800003ac                __XC_UART
+                0x800003b0                . = ALIGN (0x4)
+                0x800003b0                _sdata_end = .
 
 .lit8
  *(.lit8)
 
 .lit4
  *(.lit4)
-                0x800003ac                . = ALIGN (0x4)
-                0x800003ac                _data_end = .
-                0x800003ac                _bss_begin = .
+                0x800003b0                . = ALIGN (0x4)
+                0x800003b0                _data_end = .
+                0x800003b0                _bss_begin = .
 
-.sbss           0x800003ac       0x10
-                0x800003ac                _sbss_begin = .
+.sbss           0x800003b0       0x18
+                0x800003b0                _sbss_begin = .
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x800003ac        0x4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(errno.o)
-                0x800003ac                errno
+ .sbss          0x800003b0        0x4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(errno.o)
+                0x800003b0                errno
  *(.scommon)
- .scommon       0x800003b0        0xc build/default/debug/mini_caps.o
-                0x800003b0                curs_head
-                0x800003b4                line_screen
-                0x800003b8                curs_over_head
-                0x800003bc                _sbss_end = .
-                0x800003bc                . = ALIGN (0x4)
+ .scommon       0x800003b4       0x10 build/default/debug/mini_caps.o
+                0x800003b4                curs_head
+                0x800003b8                offset_screen
+                0x800003bc                line_screen
+                0x800003c0                curs_over_head
+ .scommon       0x800003c4        0x2 build/default/debug/button.o
+                0x800003c4                rb_prev
+                0x800003c6                _sbss_end = .
+                0x800003c8                . = ALIGN (0x4)
+ *fill*         0x800003c6        0x2 
 
-.bss            0x800003bc      0xc88
+.bss            0x800003c8      0xc80
  *(.dynbss)
  *(COMMON)
- COMMON         0x800003bc      0x400 build/default/debug/oled_ssd1306.o
-                0x800003bc                oledBuffer
- COMMON         0x800007bc      0x888 build/default/debug/mini_caps.o
-                0x800007bc                history
-                0x80000fc4                buff_str
-                0x80001044                . = ALIGN ((. != 0x0)?0x4:0x1)
-                0x80001044                . = ALIGN (0x4)
-                0x80001044                _end = .
-                0x80001044                _bss_end = .
+ COMMON         0x800003c8      0x400 build/default/debug/oled_ssd1306.o
+                0x800003c8                oledBuffer
+ COMMON         0x800007c8      0x880 build/default/debug/mini_caps.o
+                0x800007c8                history
+                0x80000fc8                buff_str
+                0x80001048                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x80001048                . = ALIGN (0x4)
+                0x80001048                _end = .
+                0x80001048                _bss_end = .
                 0x00080000                _bmxdudba_address = 0x80000
                 0x00080000                _bmxdupba_address = 0x80000
 
@@ -1611,6 +1625,7 @@ END GROUP
  .mdebug.abi32  0x00000000        0x0 build/default/debug/mpu_i2c.o
  .mdebug.abi32  0x00000000        0x0 build/default/debug/oled_ssd1306.o
  .mdebug.abi32  0x00000000        0x0 build/default/debug/mini_caps.o
+ .mdebug.abi32  0x00000000        0x0 build/default/debug/button.o
  .mdebug.abi32  0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
  .mdebug.abi32  0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
  .mdebug.abi32  0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
@@ -1682,6 +1697,7 @@ END GROUP
  .comment       0x00000000       0x3d build/default/debug/mpu_i2c.o
  .comment       0x00000000       0x3d build/default/debug/oled_ssd1306.o
  .comment       0x00000000       0x3d build/default/debug/mini_caps.o
+ .comment       0x00000000       0x3d build/default/debug/button.o
  .comment       0x00000000       0x3d /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
  .comment       0x00000000       0x3d /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
  .comment       0x00000000       0x3d /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
@@ -1729,7 +1745,7 @@ END GROUP
  *.elf(.debug_sfnames)
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x260
+.debug_aranges  0x00000000      0x280
  *.elf(.debug_aranges)
  *(.debug_aranges)
  .debug_aranges
@@ -1745,107 +1761,112 @@ END GROUP
  .debug_aranges
                 0x000000a0       0x20 build/default/debug/mini_caps.o
  .debug_aranges
-                0x000000c0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
+                0x000000c0       0x20 build/default/debug/button.o
  .debug_aranges
-                0x000000e0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
+                0x000000e0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
  .debug_aranges
-                0x00000100       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
+                0x00000100       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
  .debug_aranges
-                0x00000120       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
+                0x00000120       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
  .debug_aranges
-                0x00000140       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
+                0x00000140       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
  .debug_aranges
-                0x00000160       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
+                0x00000160       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
  .debug_aranges
-                0x00000180       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
+                0x00000180       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
  .debug_aranges
-                0x000001a0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
+                0x000001a0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
  .debug_aranges
-                0x000001c0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
+                0x000001c0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
  .debug_aranges
-                0x000001e0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
+                0x000001e0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
  .debug_aranges
-                0x00000200       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
+                0x00000200       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
  .debug_aranges
-                0x00000220       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+                0x00000220       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
  .debug_aranges
-                0x00000240       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
+                0x00000240       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+ .debug_aranges
+                0x00000260       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
 
 .debug_pubnames
  *.elf(.debug_pubnames)
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5953
+.debug_info     0x00000000     0x6a97
  *.elf(.debug_info .gnu.linkonce.wi.*)
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0xe4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
- .debug_info    0x000000e4      0xebc build/default/debug/main.o
- .debug_info    0x00000fa0      0x1ee build/default/debug/i2c_oled.o
- .debug_info    0x0000118e     0x1415 build/default/debug/mpu_i2c.o
- .debug_info    0x000025a3     0x1491 build/default/debug/oled_ssd1306.o
- .debug_info    0x00003a34      0x672 build/default/debug/mini_caps.o
- .debug_info    0x000040a6       0xf5 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
- .debug_info    0x0000419b       0xce /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
- .debug_info    0x00004269       0xd6 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
- .debug_info    0x0000433f       0xe8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
- .debug_info    0x00004427       0xf1 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
- .debug_info    0x00004518       0xf5 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
- .debug_info    0x0000460d      0x105 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
- .debug_info    0x00004712       0xc0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
- .debug_info    0x000047d2      0x775 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
- .debug_info    0x00004f47      0x7b2 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
- .debug_info    0x000056f9       0xc8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
- .debug_info    0x000057c1       0xca /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
- .debug_info    0x0000588b       0xc8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
+ .debug_info    0x000000e4      0xeeb build/default/debug/main.o
+ .debug_info    0x00000fcf      0x1ee build/default/debug/i2c_oled.o
+ .debug_info    0x000011bd     0x1415 build/default/debug/mpu_i2c.o
+ .debug_info    0x000025d2     0x1491 build/default/debug/oled_ssd1306.o
+ .debug_info    0x00003a63      0x6ae build/default/debug/mini_caps.o
+ .debug_info    0x00004111     0x10d9 build/default/debug/button.o
+ .debug_info    0x000051ea       0xf5 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_info    0x000052df       0xce /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
+ .debug_info    0x000053ad       0xd6 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
+ .debug_info    0x00005483       0xe8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
+ .debug_info    0x0000556b       0xf1 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
+ .debug_info    0x0000565c       0xf5 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
+ .debug_info    0x00005751      0x105 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
+ .debug_info    0x00005856       0xc0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
+ .debug_info    0x00005916      0x775 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
+ .debug_info    0x0000608b      0x7b2 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
+ .debug_info    0x0000683d       0xc8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
+ .debug_info    0x00006905       0xca /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+ .debug_info    0x000069cf       0xc8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
 
-.debug_abbrev   0x00000000      0xb6e
+.debug_abbrev   0x00000000      0xd05
  *.elf(.debug_abbrev)
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
- .debug_abbrev  0x00000028      0x199 build/default/debug/main.o
- .debug_abbrev  0x000001c1       0xd0 build/default/debug/i2c_oled.o
- .debug_abbrev  0x00000291      0x1be build/default/debug/mpu_i2c.o
- .debug_abbrev  0x0000044f      0x1d1 build/default/debug/oled_ssd1306.o
- .debug_abbrev  0x00000620      0x117 build/default/debug/mini_caps.o
- .debug_abbrev  0x00000737       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
- .debug_abbrev  0x0000075f       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
- .debug_abbrev  0x00000787       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
- .debug_abbrev  0x000007af       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
- .debug_abbrev  0x000007d7       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
- .debug_abbrev  0x000007ff       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
- .debug_abbrev  0x00000827       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
- .debug_abbrev  0x0000084f       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
- .debug_abbrev  0x00000877      0x138 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
- .debug_abbrev  0x000009af      0x147 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
- .debug_abbrev  0x00000af6       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
- .debug_abbrev  0x00000b1e       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
- .debug_abbrev  0x00000b46       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
+ .debug_abbrev  0x00000028      0x1ac build/default/debug/main.o
+ .debug_abbrev  0x000001d4       0xd0 build/default/debug/i2c_oled.o
+ .debug_abbrev  0x000002a4      0x1be build/default/debug/mpu_i2c.o
+ .debug_abbrev  0x00000462      0x1d1 build/default/debug/oled_ssd1306.o
+ .debug_abbrev  0x00000633      0x117 build/default/debug/mini_caps.o
+ .debug_abbrev  0x0000074a      0x184 build/default/debug/button.o
+ .debug_abbrev  0x000008ce       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_abbrev  0x000008f6       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
+ .debug_abbrev  0x0000091e       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
+ .debug_abbrev  0x00000946       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
+ .debug_abbrev  0x0000096e       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
+ .debug_abbrev  0x00000996       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
+ .debug_abbrev  0x000009be       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
+ .debug_abbrev  0x000009e6       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
+ .debug_abbrev  0x00000a0e      0x138 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x00000b46      0x147 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
+ .debug_abbrev  0x00000c8d       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
+ .debug_abbrev  0x00000cb5       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+ .debug_abbrev  0x00000cdd       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
 
-.debug_line     0x00000000     0x10da
+.debug_line     0x00000000     0x1229
  *.elf(.debug_line)
  *(.debug_line)
  .debug_line    0x00000000       0x9a /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
- .debug_line    0x0000009a      0x1a4 build/default/debug/main.o
- .debug_line    0x0000023e       0xc7 build/default/debug/i2c_oled.o
- .debug_line    0x00000305      0x204 build/default/debug/mpu_i2c.o
- .debug_line    0x00000509      0x1fc build/default/debug/oled_ssd1306.o
- .debug_line    0x00000705      0x132 build/default/debug/mini_caps.o
- .debug_line    0x00000837       0xa7 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
- .debug_line    0x000008de       0x94 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
- .debug_line    0x00000972       0x98 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
- .debug_line    0x00000a0a       0xa6 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
- .debug_line    0x00000ab0       0xa5 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
- .debug_line    0x00000b55       0xa7 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
- .debug_line    0x00000bfc       0xaf /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
- .debug_line    0x00000cab       0x7b /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
- .debug_line    0x00000d26       0xfd /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
- .debug_line    0x00000e23      0x10f /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
- .debug_line    0x00000f32       0x8d /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
- .debug_line    0x00000fbf       0x8e /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
- .debug_line    0x0000104d        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(xc32_uart.o)
- .debug_line    0x0000104d       0x8d /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
+ .debug_line    0x0000009a      0x1a7 build/default/debug/main.o
+ .debug_line    0x00000241       0xc7 build/default/debug/i2c_oled.o
+ .debug_line    0x00000308      0x204 build/default/debug/mpu_i2c.o
+ .debug_line    0x0000050c      0x1fc build/default/debug/oled_ssd1306.o
+ .debug_line    0x00000708      0x133 build/default/debug/mini_caps.o
+ .debug_line    0x0000083b      0x14b build/default/debug/button.o
+ .debug_line    0x00000986       0xa7 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_line    0x00000a2d       0x94 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
+ .debug_line    0x00000ac1       0x98 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
+ .debug_line    0x00000b59       0xa6 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
+ .debug_line    0x00000bff       0xa5 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
+ .debug_line    0x00000ca4       0xa7 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
+ .debug_line    0x00000d4b       0xaf /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
+ .debug_line    0x00000dfa       0x7b /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
+ .debug_line    0x00000e75       0xfd /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
+ .debug_line    0x00000f72      0x10f /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
+ .debug_line    0x00001081       0x8d /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
+ .debug_line    0x0000110e       0x8e /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+ .debug_line    0x0000119c        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(xc32_uart.o)
+ .debug_line    0x0000119c       0x8d /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
 
-.debug_frame    0x00000000      0x9ac
+.debug_frame    0x00000000      0xaec
  *.elf(.debug_frame)
  *(.debug_frame)
  .debug_frame   0x00000000       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
@@ -1854,61 +1875,64 @@ END GROUP
  .debug_frame   0x00000154      0x170 build/default/debug/mpu_i2c.o
  .debug_frame   0x000002c4      0x3b0 build/default/debug/oled_ssd1306.o
  .debug_frame   0x00000674      0x14c build/default/debug/mini_caps.o
- .debug_frame   0x000007c0       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
- .debug_frame   0x000007ec       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
- .debug_frame   0x0000080c       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
- .debug_frame   0x0000082c       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
- .debug_frame   0x0000084c       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
- .debug_frame   0x00000878       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
- .debug_frame   0x000008a4       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
- .debug_frame   0x000008d0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
- .debug_frame   0x000008f0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
- .debug_frame   0x00000910       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
- .debug_frame   0x00000930       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
- .debug_frame   0x00000958       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
- .debug_frame   0x00000984       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
+ .debug_frame   0x000007c0      0x140 build/default/debug/button.o
+ .debug_frame   0x00000900       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_frame   0x0000092c       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
+ .debug_frame   0x0000094c       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
+ .debug_frame   0x0000096c       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
+ .debug_frame   0x0000098c       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
+ .debug_frame   0x000009b8       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
+ .debug_frame   0x000009e4       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
+ .debug_frame   0x00000a10       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
+ .debug_frame   0x00000a30       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
+ .debug_frame   0x00000a50       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
+ .debug_frame   0x00000a70       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
+ .debug_frame   0x00000a98       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+ .debug_frame   0x00000ac4       0x28 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
 
-.debug_str      0x00000000       0x58
+.debug_str      0x00000000       0x65
  *.elf(.debug_str)
  *(.debug_str)
  .debug_str     0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
- .debug_str     0x00000000        0x0 build/default/debug/main.o
- .debug_str     0x00000000        0x0 build/default/debug/i2c_oled.o
- .debug_str     0x00000000       0x50 build/default/debug/mpu_i2c.o
- .debug_str     0x00000050        0x8 build/default/debug/oled_ssd1306.o
- .debug_str     0x00000058        0x0 build/default/debug/mini_caps.o
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(xc32_uart.o)
- .debug_str     0x00000058        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
+ .debug_str     0x00000000        0xd build/default/debug/main.o
+ .debug_str     0x0000000d        0x0 build/default/debug/i2c_oled.o
+ .debug_str     0x0000000d       0x50 build/default/debug/mpu_i2c.o
+ .debug_str     0x0000005d        0x8 build/default/debug/oled_ssd1306.o
+ .debug_str     0x00000065        0x0 build/default/debug/mini_caps.o
+ .debug_str     0x00000065        0x0 build/default/debug/button.o
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(xc32_uart.o)
+ .debug_str     0x00000065        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
 
-.debug_loc      0x00000000     0x3675
+.debug_loc      0x00000000     0x3820
  *.elf(.debug_loc)
  *(.debug_loc)
  .debug_loc     0x00000000      0x30b build/default/debug/main.o
  .debug_loc     0x0000030b       0xc7 build/default/debug/i2c_oled.o
  .debug_loc     0x000003d2      0xa30 build/default/debug/mpu_i2c.o
  .debug_loc     0x00000e02      0xc67 build/default/debug/oled_ssd1306.o
- .debug_loc     0x00001a69      0x655 build/default/debug/mini_caps.o
- .debug_loc     0x000020be       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
- .debug_loc     0x000020ea       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
- .debug_loc     0x00002116       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
- .debug_loc     0x00002142       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
- .debug_loc     0x0000216e      0xa6a /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
- .debug_loc     0x00002bd8      0xa3d /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
- .debug_loc     0x00003615       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
- .debug_loc     0x00003635       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
- .debug_loc     0x00003655       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
+ .debug_loc     0x00001a69      0x62b build/default/debug/mini_caps.o
+ .debug_loc     0x00002094      0x1d5 build/default/debug/button.o
+ .debug_loc     0x00002269       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_loc     0x00002295       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
+ .debug_loc     0x000022c1       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
+ .debug_loc     0x000022ed       0x2c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
+ .debug_loc     0x00002319      0xa6a /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
+ .debug_loc     0x00002d83      0xa3d /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
+ .debug_loc     0x000037c0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
+ .debug_loc     0x000037e0       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+ .debug_loc     0x00003800       0x20 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
 
 .debug_macinfo
  *.elf(.debug_macinfo)
@@ -1968,49 +1992,51 @@ END GROUP
  .gnu.attributes
                 0x00000050       0x10 build/default/debug/mini_caps.o
  .gnu.attributes
-                0x00000060       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
+                0x00000060       0x10 build/default/debug/button.o
  .gnu.attributes
-                0x00000070       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
+                0x00000070       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
  .gnu.attributes
-                0x00000080       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
+                0x00000080       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
  .gnu.attributes
-                0x00000090       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
+                0x00000090       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
  .gnu.attributes
-                0x000000a0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
+                0x000000a0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
  .gnu.attributes
-                0x000000b0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
+                0x000000b0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
  .gnu.attributes
-                0x000000c0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
+                0x000000c0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
  .gnu.attributes
-                0x000000d0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(sprintf_cdfFnopsuxX.eo)
+                0x000000d0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
  .gnu.attributes
-                0x000000e0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
+                0x000000e0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(sprintf_cdfFnopsuxX.eo)
  .gnu.attributes
-                0x000000f0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
+                0x000000f0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
  .gnu.attributes
-                0x00000100       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
+                0x00000100       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
  .gnu.attributes
-                0x00000110       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
+                0x00000110       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
  .gnu.attributes
-                0x00000120       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(fputc.o)
+                0x00000120       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
  .gnu.attributes
-                0x00000130       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(strlen.o)
+                0x00000130       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(fputc.o)
  .gnu.attributes
-                0x00000140       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(errno.o)
+                0x00000140       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(strlen.o)
  .gnu.attributes
-                0x00000150       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
+                0x00000150       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(errno.o)
  .gnu.attributes
-                0x00000160       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
+                0x00000160       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
  .gnu.attributes
-                0x00000170       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
+                0x00000170       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
  .gnu.attributes
-                0x00000180       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
+                0x00000180       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
  .gnu.attributes
-                0x00000190       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+                0x00000190       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
  .gnu.attributes
-                0x000001a0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(xc32_uart.o)
+                0x000001a0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
  .gnu.attributes
-                0x000001b0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
+                0x000001b0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(xc32_uart.o)
+ .gnu.attributes
+                0x000001c0       0x10 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
                 0x9d000000                PROVIDE (__pic32_init_cache_program_base_addr, 0x9d000000)
                 0x80000000                PROVIDE (__pic32_init_cache_data_base_addr, 0x80000000)
                 0xd0000000                PROVIDE (__pic32_init_sqi_kseg2_virtual_base_addr, 0xd0000000)
@@ -2145,11 +2171,11 @@ LOAD data_init
  .__vector_offset_BF810894_data
                 0xbf810894        0x4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/vector_offset_init.o
 
-.data           0x80001044       0xd4
- .data          0x80001044       0xd4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
+.data           0x80001048       0xd4
+ .data          0x80001048       0xd4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
 
-.bss            0x80001118       0x88
- .bss           0x80001118       0x88 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
+.bss            0x8000111c       0x88
+ .bss           0x8000111c       0x88 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
 
 .bss%z1         0x00000000        0x0
  .bss           0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
@@ -2338,121 +2364,136 @@ LOAD data_init
  .data          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/default_isr_vectors.o
 
 .bss%z63        0x00000000        0x0
- .bss           0x00000000        0x0 build/default/debug/mini_caps.o
+ .bss           0x00000000        0x0 build/default/debug/button.o
 
 .data%z64       0x00000000        0x0
- .data          0x00000000        0x0 build/default/debug/mini_caps.o
+ .data          0x00000000        0x0 build/default/debug/button.o
 
 .bss%z65        0x00000000        0x0
- .bss           0x00000000        0x0 build/default/debug/oled_ssd1306.o
+ .bss           0x00000000        0x0 build/default/debug/mini_caps.o
 
 .data%z66       0x00000000        0x0
- .data          0x00000000        0x0 build/default/debug/oled_ssd1306.o
+ .data          0x00000000        0x0 build/default/debug/mini_caps.o
 
 .bss%z67        0x00000000        0x0
- .bss           0x00000000        0x0 build/default/debug/mpu_i2c.o
+ .bss           0x00000000        0x0 build/default/debug/oled_ssd1306.o
 
 .data%z68       0x00000000        0x0
- .data          0x00000000        0x0 build/default/debug/mpu_i2c.o
+ .data          0x00000000        0x0 build/default/debug/oled_ssd1306.o
 
 .bss%z69        0x00000000        0x0
- .bss           0x00000000        0x0 build/default/debug/i2c_oled.o
+ .bss           0x00000000        0x0 build/default/debug/mpu_i2c.o
 
 .data%z70       0x00000000        0x0
- .data          0x00000000        0x0 build/default/debug/i2c_oled.o
+ .data          0x00000000        0x0 build/default/debug/mpu_i2c.o
 
 .bss%z71        0x00000000        0x0
- .bss           0x00000000        0x0 build/default/debug/main.o
+ .bss           0x00000000        0x0 build/default/debug/i2c_oled.o
 
 .data%z72       0x00000000        0x0
- .data          0x00000000        0x0 build/default/debug/main.o
+ .data          0x00000000        0x0 build/default/debug/i2c_oled.o
 
 .bss%z73        0x00000000        0x0
- .bss           0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
+ .bss           0x00000000        0x0 build/default/debug/main.o
 
 .data%z74       0x00000000        0x0
- .data          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
+ .data          0x00000000        0x0 build/default/debug/main.o
 
 .bss%z75        0x00000000        0x0
- .bss           0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/crt0_mips32r2.o
+ .bss           0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
 
 .data%z76       0x00000000        0x0
+ .data          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
+
+.bss%z77        0x00000000        0x0
+ .bss           0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/crt0_mips32r2.o
+
+.data%z78       0x00000000        0x0
  .data          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/crt0_mips32r2.o
 
-.text           0x9d000248     0x1b54
- .text          0x9d000248      0xea0 build/default/debug/mpu_i2c.o
-                0x9d000e80                init_mpus
-                0x9d000fd4                read_mpu_samples
- .text          0x9d0010e8      0xcb4 build/default/debug/oled_ssd1306.o
-                0x9d0010e8                buff_is_empty
-                0x9d0011cc                init_i2c_5
-                0x9d0019f0                oledInitialize
-                0x9d001b28                oledUpdate
-                0x9d001b64                send_oled_data
-                0x9d001bac                oledClear
-                0x9d001c08                oledDrawPixel
-                0x9d001cc0                oledDrawVLine
-                0x9d001d30                oledDrawHLine
+.text           0x9d000250     0x1b54
+ .text          0x9d000250      0xea0 build/default/debug/mpu_i2c.o
+                0x9d000e88                init_mpus
+                0x9d000fdc                read_mpu_samples
+ .text          0x9d0010f0      0xcb4 build/default/debug/oled_ssd1306.o
+                0x9d0010f0                buff_is_empty
+                0x9d0011d4                init_i2c_5
+                0x9d0019f8                oledInitialize
+                0x9d001b30                oledUpdate
+                0x9d001b6c                send_oled_data
+                0x9d001bb4                oledClear
+                0x9d001c10                oledDrawPixel
+                0x9d001cc8                oledDrawVLine
+                0x9d001d38                oledDrawHLine
 
 .text._do_print_cdfFnopsuxX
-                0x9d001d9c      0xadc
+                0x9d001da4      0xadc
  .text._do_print_cdfFnopsuxX
-                0x9d001d9c      0xadc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
-                0x9d001d9c                _do_print_cdfFnopsuxX
+                0x9d001da4      0xadc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
+                0x9d001da4                _do_print_cdfFnopsuxX
 
-.text           0x9d002878      0xb6c
- .text          0x9d002878      0x64c build/default/debug/mini_caps.o
-                0x9d002878                init_mini_caps
-                0x9d0028e0                curs_incr
-                0x9d00293c                putendl
-                0x9d0029bc                puttab
-                0x9d002a3c                add_one_char
-                0x9d002a5c                my_putchar
-                0x9d002ba8                my_putstr
-                0x9d002c28                my_putnbr
-                0x9d002d60                putnbr_endl
-                0x9d002da4                print_screen
- .text          0x9d002ec4      0x520 build/default/debug/main.o
-                0x9d002ec4                init_led
-                0x9d002f38                tick_tick
-                0x9d002ff8                test_putnbr
-                0x9d00306c                test_sprintf
-                0x9d003118                test_scroll_str
-                0x9d0032f4                test_scrol_nbr
-                0x9d0033a4                main
+.text           0x9d002880      0xbe4
+ .text          0x9d002880      0x658 build/default/debug/mini_caps.o
+                0x9d002880                init_mini_caps
+                0x9d0028e8                curs_incr
+                0x9d002944                putendl
+                0x9d0029c4                puttab
+                0x9d002a44                add_one_char
+                0x9d002a64                my_putchar
+                0x9d002bb0                my_putstr
+                0x9d002c30                my_putnbr
+                0x9d002d68                putnbr_endl
+                0x9d002dac                print_screen
+ .text          0x9d002ed8      0x58c build/default/debug/button.o
+                0x9d002ed8                init_timer_2
+                0x9d002fb4                init_but_int
+                0x9d003048                but1
+                0x9d0030b8                but2
+                0x9d003100                but3
+                0x9d003160                interrupt_timer_4
 
-.dinit          0x9d0033e4      0x4b0
- .dinit         0x9d0033e4      0x4b0 data_init
+.text           0x9d003464      0x53c
+ .text          0x9d003464      0x53c build/default/debug/main.o
+                0x9d003464                init_led
+                0x9d0034d8                tick_tick
+                0x9d003598                test_putnbr
+                0x9d00360c                test_sprintf
+                0x9d0036b8                test_scroll_str
+                0x9d003894                test_scrol_nbr
+                0x9d003944                main
+
+.dinit          0x9d0039a0      0x4c0
+ .dinit         0x9d0039a0      0x4c0 data_init
 
 .text._fconvert
-                0x9d003894      0x490
+                0x9d003e60      0x490
  .text._fconvert
-                0x9d003894      0x490 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
+                0x9d003e60      0x490 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
 
-.text           0x9d003d24      0x8bc
- .text          0x9d003d24      0x464 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
-                0x9d003d24                __umoddi3
- .text          0x9d004188      0x458 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
-                0x9d004188                __udivdi3
+.text           0x9d0042f0      0x8bc
+ .text          0x9d0042f0      0x464 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_umoddi3.o)
+                0x9d0042f0                __umoddi3
+ .text          0x9d004754      0x458 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/fpu64/libgcc.a(_udivdi3.o)
+                0x9d004754                __udivdi3
 
-.rodata         0x9d0045e0      0x30c
- .rodata        0x9d0045e0      0x30c build/default/debug/mini_caps.o
-                0x9d0045e0                basicFont
+.rodata         0x9d004bac      0x30c
+ .rodata        0x9d004bac      0x30c build/default/debug/mini_caps.o
+                0x9d004bac                basicFont
 
 .text._outcnvrt
-                0x9d0048ec      0x13c
+                0x9d004eb8      0x13c
  .text._outcnvrt
-                0x9d0048ec      0x13c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
+                0x9d004eb8      0x13c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
 
 .text._flsbuf_simple
-                0x9d004a28       0xfc
+                0x9d004ff4       0xfc
  .text._flsbuf_simple
-                0x9d004a28       0xfc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
-                0x9d004a28                _flsbuf_simple
+                0x9d004ff4       0xfc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
+                0x9d004ff4                _flsbuf_simple
 
-.text._modfx    0x9d004b24       0xfc
- .text._modfx   0x9d004b24       0xfc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
-                0x9d004b24                _modfx
+.text._modfx    0x9d0050f0       0xfc
+ .text._modfx   0x9d0050f0       0xfc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
+                0x9d0050f0                _modfx
 
 .text._mon_getc
                 0x9d000010       0xe4
@@ -2460,66 +2501,66 @@ LOAD data_init
                 0x9d000010       0xe4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
                 0x9d000010                _mon_getc
 
-.rodata         0x9d004c20       0xe0
- .rodata        0x9d004c20       0xe0 build/default/debug/main.o
+.rodata         0x9d0051ec       0xe0
+ .rodata        0x9d0051ec       0xe0 build/default/debug/main.o
 
 .text.general_exception
-                0x9d004d00       0xdc
+                0x9d0052cc       0xdc
  .text.general_exception
-                0x9d004d00       0xdc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(general-exception.o)
-                0x9d004d00                _general_exception_context
+                0x9d0052cc       0xdc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(general-exception.o)
+                0x9d0052cc                _general_exception_context
 
 .text._cache_err_exception_context
-                0x9d004ddc       0xd8
+                0x9d0053a8       0xd8
  .text._cache_err_exception_context
-                0x9d004ddc       0xd8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(cache-err-exception.o)
-                0x9d004ddc                _cache_err_exception_context
+                0x9d0053a8       0xd8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(cache-err-exception.o)
+                0x9d0053a8                _cache_err_exception_context
 
 .text.simple_tlb_refill_context
-                0x9d004eb4       0xd8
+                0x9d005480       0xd8
  .text.simple_tlb_refill_context
-                0x9d004eb4       0xd8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(simple-tlb-refill-exception.o)
-                0x9d004eb4                _simple_tlb_refill_exception_context
+                0x9d005480       0xd8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(simple-tlb-refill-exception.o)
+                0x9d005480                _simple_tlb_refill_exception_context
 
 .text._mon_putc
-                0x9d004f8c       0xd4
+                0x9d005558       0xd4
  .text._mon_putc
-                0x9d004f8c       0xd4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
-                0x9d004f8c                _mon_putc
+                0x9d005558       0xd4 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
+                0x9d005558                _mon_putc
 
 .tlb.__pic32_tlb_init_ebi_sqi
-                0x9d005060       0xbc
+                0x9d00562c       0xbc
  .tlb.__pic32_tlb_init_ebi_sqi
-                0x9d005060       0xbc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(pic32_init_tlb_ebi_sqi.o)
-                0x9d005060                __pic32_tlb_init_ebi_sqi
+                0x9d00562c       0xbc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(pic32_init_tlb_ebi_sqi.o)
+                0x9d00562c                __pic32_tlb_init_ebi_sqi
 
-.text           0x9d00511c       0xac
- .text          0x9d00511c       0xac build/default/debug/i2c_oled.o
-                0x9d00511c                wait
-                0x9d00518c                init_oled
+.text           0x9d0056e8       0xac
+ .text          0x9d0056e8       0xac build/default/debug/i2c_oled.o
+                0x9d0056e8                wait
+                0x9d005758                init_oled
 
-.text.fputc     0x9d0051c8       0xac
- .text.fputc    0x9d0051c8       0xac /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(fputc.o)
-                0x9d0051c8                fputc
+.text.fputc     0x9d005794       0xac
+ .text.fputc    0x9d005794       0xac /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(fputc.o)
+                0x9d005794                fputc
 
-.text.repl      0x9d005274       0x9c
- .text.repl     0x9d005274       0x9c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
+.text.repl      0x9d005840       0x9c
+ .text.repl     0x9d005840       0x9c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
 
-.text.strlen    0x9d005310       0x94
- .text.strlen   0x9d005310       0x94 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(strlen.o)
-                0x9d005310                strlen
+.text.strlen    0x9d0058dc       0x94
+ .text.strlen   0x9d0058dc       0x94 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(strlen.o)
+                0x9d0058dc                strlen
 
 .text._fflush_simple
-                0x9d0053a4       0x80
+                0x9d005970       0x80
  .text._fflush_simple
-                0x9d0053a4       0x80 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
-                0x9d0053a4                _fflush_simple
+                0x9d005970       0x80 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
+                0x9d005970                _fflush_simple
 
 .text._fwrite_simple
-                0x9d005424       0x80
+                0x9d0059f0       0x80
  .text._fwrite_simple
-                0x9d005424       0x80 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
-                0x9d005424                _fwrite_simple
+                0x9d0059f0       0x80 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
+                0x9d0059f0                _fwrite_simple
 
 .text._sprintf_cdfFnopsuxX
                 0x9d000110       0x6c
@@ -2531,94 +2572,94 @@ LOAD data_init
  .text.__sputn  0x9d000190       0x68 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
 
 .text.main_entry
-                0x9d0054a4       0x54
+                0x9d005a70       0x54
  .text.main_entry
-                0x9d0054a4       0x54 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/crt0_mips32r2.o
-                0x9d0054d8                __crt0_exit
+                0x9d005a70       0x54 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/crt0_mips32r2.o
+                0x9d005aa4                __crt0_exit
 
-.rodata         0x9d0054f8       0x54
- .rodata        0x9d0054f8       0x54 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
+.rodata         0x9d005ac4       0x54
+ .rodata        0x9d005ac4       0x54 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
 
 .text._mon_write
-                0x9d00554c       0x4c
+                0x9d005b18       0x4c
  .text._mon_write
-                0x9d00554c       0x4c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
-                0x9d00554c                _mon_write
+                0x9d005b18       0x4c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+                0x9d005b18                _mon_write
 
 .text._bootstrap_exception_handler
-                0x9d005598       0x48
+                0x9d005b64       0x48
  .text._bootstrap_exception_handler
-                0x9d005598       0x48 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
-                0x9d005598                _bootstrap_exception_handler
+                0x9d005b64       0x48 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
+                0x9d005b64                _bootstrap_exception_handler
 
 .text._general_exception_handler
-                0x9d0055e0       0x48
+                0x9d005bac       0x48
  .text._general_exception_handler
-                0x9d0055e0       0x48 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
-                0x9d0055e0                _general_exception_handler
+                0x9d005bac       0x48 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
+                0x9d005bac                _general_exception_handler
 
 .text._cache_err_exception_handler
-                0x9d005628       0x48
+                0x9d005bf4       0x48
  .text._cache_err_exception_handler
-                0x9d005628       0x48 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
-                0x9d005628                _cache_err_exception_handler
+                0x9d005bf4       0x48 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
+                0x9d005bf4                _cache_err_exception_handler
 
 .text._simple_tlb_refill_exception_handler
-                0x9d005670       0x48
+                0x9d005c3c       0x48
  .text._simple_tlb_refill_exception_handler
-                0x9d005670       0x48 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
-                0x9d005670                _simple_tlb_refill_exception_handler
+                0x9d005c3c       0x48 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
+                0x9d005c3c                _simple_tlb_refill_exception_handler
 
-.text           0x9d0056b8       0x44
- .text          0x9d0056b8       0x44 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/pic32_software_reset.o
-                0x9d0056b8                __pic32_software_reset
+.text           0x9d005c84       0x44
+ .text          0x9d005c84       0x44 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/pic32_software_reset.o
+                0x9d005c84                __pic32_software_reset
 
 .text._filbuf_simple
-                0x9d0056fc       0x34
+                0x9d005cc8       0x34
  .text._filbuf_simple
-                0x9d0056fc       0x34 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
-                0x9d0056fc                _filbuf_simple
+                0x9d005cc8       0x34 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
+                0x9d005cc8                _filbuf_simple
 
 .text._fsync_simple
-                0x9d005730       0x30
+                0x9d005cfc       0x30
  .text._fsync_simple
-                0x9d005730       0x30 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
-                0x9d005730                _fsync_simple
+                0x9d005cfc       0x30 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
+                0x9d005cfc                _fsync_simple
 
-.text.putchar   0x9d005760       0x24
- .text.putchar  0x9d005760       0x24 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(fputc.o)
-                0x9d005760                putchar
+.text.putchar   0x9d005d2c       0x24
+ .text.putchar  0x9d005d2c       0x24 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(fputc.o)
+                0x9d005d2c                putchar
 
 .text._vfprintf_cdfFnopsuxX
-                0x9d005784       0x1c
+                0x9d005d50       0x1c
  .text._vfprintf_cdfFnopsuxX
-                0x9d005784       0x1c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
-                0x9d005784                _vfprintf_cdfFnopsuxX
+                0x9d005d50       0x1c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
+                0x9d005d50                _vfprintf_cdfFnopsuxX
 
-.text.putc      0x9d0057a0       0x1c
- .text.putc     0x9d0057a0       0x1c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(fputc.o)
-                0x9d0057a0                putc
+.text.putc      0x9d005d6c       0x1c
+ .text.putc     0x9d005d6c       0x1c /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(fputc.o)
+                0x9d005d6c                putc
 
-.text           0x9d0057bc       0x18
- .text          0x9d0057bc       0x18 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-nmi-handler.o)
-                0x9d0057bc                _nmi_handler
+.text           0x9d005d88       0x18
+ .text          0x9d005d88       0x18 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-nmi-handler.o)
+                0x9d005d88                _nmi_handler
 
-.text._io_exit  0x9d0057d4       0x14
+.text._io_exit  0x9d005da0       0x14
  .text._io_exit
-                0x9d0057d4       0x14 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
-                0x9d0057d4                _io_exit
+                0x9d005da0       0x14 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
+                0x9d005da0                _io_exit
 
-.rodata         0x9d0057e8       0x14
- .rodata        0x9d0057e8       0x14 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
-                0x9d0057e8                _io_funcs
+.rodata         0x9d005db4       0x14
+ .rodata        0x9d005db4       0x14 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
+                0x9d005db4                _io_funcs
 
-.text._io_exit  0x9d0057fc       0x14
+.text._io_exit  0x9d005dc8       0x14
  .text._io_exit
-                0x9d0057fc       0x14 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
+                0x9d005dc8       0x14 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
 
-.rodata         0x9d005810       0x14
- .rodata        0x9d005810       0x14 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
-                0x9d005810                _io_strfuncs
+.rodata         0x9d005ddc       0x14
+ .rodata        0x9d005ddc       0x14 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
+                0x9d005ddc                _io_strfuncs
 
 .text.__exception_handler_break
                 0x9d0000f4        0xc
@@ -2626,129 +2667,132 @@ LOAD data_init
                 0x9d0000f4        0xc /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
                 0x9d0000f4                __exception_handler_break
 
+.rodata         0x9d0001f8        0x8
+ .rodata        0x9d0001f8        0x8 build/default/debug/button.o
+
 .text._on_reset
-                0x9d0001f8        0x8
+                0x9d005df0        0x8
  .text._on_reset
-                0x9d0001f8        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
-                0x9d0001f8                _on_reset
+                0x9d005df0        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
+                0x9d005df0                _on_reset
 
 .text._on_bootstrap
-                0x9d005824        0x8
+                0x9d005df8        0x8
  .text._on_bootstrap
-                0x9d005824        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
-                0x9d005824                _on_bootstrap
+                0x9d005df8        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
+                0x9d005df8                _on_bootstrap
 
 .text._filbuf_string
-                0x9d00582c        0x8
+                0x9d005e00        0x8
  .text._filbuf_string
-                0x9d00582c        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
+                0x9d005e00        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
 
 .text._flsbuf_string
-                0x9d005834        0x8
+                0x9d005e08        0x8
  .text._flsbuf_string
-                0x9d005834        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
+                0x9d005e08        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
 
 .text._fflush_string
-                0x9d00583c        0x8
+                0x9d005e10        0x8
  .text._fflush_string
-                0x9d00583c        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
+                0x9d005e10        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
 
 .text._fwrite_string
-                0x9d005844        0x8
+                0x9d005e18        0x8
  .text._fwrite_string
-                0x9d005844        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
+                0x9d005e18        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
 
 .text._fsync_string
-                0x9d00584c        0x8
+                0x9d005e20        0x8
  .text._fsync_string
-                0x9d00584c        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
-
-.text%z77       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
-
-.text%z78       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(xc32_uart.o)
+                0x9d005e20        0x8 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
 
 .text%z79       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_putc.o)
 
 .text%z80       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(xc32_uart.o)
 
 .text%z81       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_write.o)
 
 .text%z82       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(errno.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(_mon_getc.o)
 
 .text%z83       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(strlen.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libmfd.a(s_modf.o)
 
 .text%z84       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(fputc.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(errno.o)
 
 .text%z85       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(strlen.o)
 
 .text%z86       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(fputc.o)
 
 .text%z87       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobstring.o)
 
 .text%z88       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobfuncs.o)
 
 .text%z89       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(sprintf_cdfFnopsuxX.eo)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_iobdata.o)
 
 .text%z90       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(_doprnt_cdfFnopsuxX.eo)
 
 .text%z91       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/liblega-c.a(sprintf_cdfFnopsuxX.eo)
 
 .text%z92       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-simple-tlb-refill-exception-handler.o)
 
 .text%z93       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-cache-err-exception-handler.o)
 
 .text%z94       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(simple-tlb-refill-exception.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-general-exception-handler.o)
 
 .text%z95       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(cache-err-exception.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(defaultinterrupt.o)
 
 .text%z96       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(general-exception.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(simple-tlb-refill-exception.o)
 
 .text%z97       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(pic32_init_tlb_ebi_sqi.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(cache-err-exception.o)
 
 .text%z98       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(pic32_init_cache.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(general-exception.o)
 
 .text%z99       0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(pic32_init_tlb_ebi_sqi.o)
 
 .text%z100      0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(pic32_init_cache.o)
 
 .text%z101      0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-bootstrap.o)
 
 .text%z102      0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/vector_offset_init.o
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-on-reset.o)
 
 .text%z103      0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/processor.o
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/libpic32.a(default-bootstrap-exception-handler.o)
 
 .text%z104      0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/default_isr_vectors.o
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/vector_offset_init.o
 
 .text%z105      0x00000000        0x0
- .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/processor.o
 
 .text%z106      0x00000000        0x0
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/default_isr_vectors.o
+
+.text%z107      0x00000000        0x0
+ .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/fpu64/software-debug-break.o
+
+.text%z108      0x00000000        0x0
  .text          0x00000000        0x0 /opt/microchip/xc32/v1.43/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MZ2048EFH064/crt0_mips32r2.o

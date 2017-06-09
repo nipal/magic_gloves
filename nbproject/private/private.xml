@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/Makefile</file>
+            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/button.c</file>
+            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/mini_caps.h</file>
             <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/main.c</file>
-            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/i2c_oled.c</file>
-            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/oled.h</file>
+            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/button.h</file>
             <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/oled_ssd1306.c</file>
+            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/mini_caps.c</file>
         </group>
     </open-files>
 </project-private>

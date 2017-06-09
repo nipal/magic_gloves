@@ -109,7 +109,7 @@ void    test_scrol_nbr()
     int8_t      buff[16];
     
     f = 0.3476;
-    for (i = 0; i < 256; i++)
+    for (i = 0; i < 50; i++)
     {
         r = f * i;
         sprintf(buff, "%f\n", r);
@@ -123,10 +123,11 @@ int main()
     init_i2c_5();
     
  //   init_oled();
-
+    init_but_int();
     init_mini_caps();    
     oledInitialize();
 
+    LED1 = 1;
     
 //    DBINIT();
   //  DBPRINTF("test\n");

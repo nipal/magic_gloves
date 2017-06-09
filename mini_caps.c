@@ -101,7 +101,6 @@ const uint8_t basicFont[96][8] =
   {0x00,0x02,0x05,0x05,0x02,0x00,0x00,0x00} 
 };
 
-#define SIZE_HISTORY (16 * 16 * 8)
 
 uint8_t     history[SIZE_HISTORY];  // 
 uint32_t    offset_screen;
@@ -193,7 +192,7 @@ void    my_putstr(int8_t *str)
 
 void    my_putnbr(int32_t nbr)
 {
-    if (nbr == -2147483648)
+    if (nbr < -2147483647)
         return (my_putstr("-2147483648")); 
     if (nbr < 0)
         return (my_putchar('-'), my_putnbr(-nbr));
