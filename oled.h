@@ -14,6 +14,9 @@
 #define LED1 LATBbits.LATB8
 #define LED2 LATBbits.LATB9
 #define LED3 LATBbits.LATB10
+#define BUT1 LATBbits.LATB12
+#define BUT2 LATBbits.LATB13
+#define BUT3 LATBbits.LATB14
 #define GET_LED1 PORTBbits.RB8
 #define GET_LED2 PORTBbits.RB9
 #define GET_LED3 PORTBbits.RB10

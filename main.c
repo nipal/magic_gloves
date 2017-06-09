@@ -4,6 +4,7 @@
 
 
 #include <stdio.h>
+#include <xc.h>
 
 //#include <xc.h>
 
@@ -18,6 +19,10 @@ int init_led()
     // init oled reset
     TRISFbits.TRISF1 = 0;
     LATFbits.LATF1 = 1;
+    
+    TRISBbits.TRISB12 = 1;
+    TRISBbits.TRISB13 = 1;
+    TRISBbits.TRISB14 = 1;
     
 //    LED0 = 1;
 //    LED1 = 1;
@@ -80,41 +85,41 @@ void test_sprintf()
 
 void    test_scroll_str()
 {
-    uint8_t time = 0;
+    uint8_t time = 1;
     
-    while (1)
-    {
-        wait(time); my_putstr("yo\n");
-        wait(time); my_putstr("wesh\n");
-        wait(time); my_putstr("ta vu\n");
-        wait(time); my_putstr("sisi la famille\n");
-        wait(time); my_putstr("yo\n");
-        wait(time); my_putstr("ouiiii\n");
-        wait(time); my_putstr("nonnnn\n");
-        wait(time); my_putstr("dfsd\n");
-        wait(time); my_putstr("5454\n");
-        wait(time); my_putstr("tutut toto\n");
-        wait(time); my_putstr("mouhahah\n");
-        wait(time); my_putstr("hihihi\n");
-        wait(time); my_putstr("hohoho\n");
-        wait(time); my_putstr("heheh\n");
-    }
+        wait(time); my_putstr(".\n");
+        wait(time); my_putstr("..\n");
+        wait(time); my_putstr("...\n");
+        wait(time); my_putstr("....\n");
+        wait(time); my_putstr("...\n");
+        wait(time); my_putstr("..\n");
+        wait(time); my_putstr(".\n");
+        wait(time); my_putstr("\n");
+
+
 }
 
 void    test_scrol_nbr()
 {
-    uint16_t    i;
+    float       i;
     float       f;
     float       r;
     int8_t      buff[16];
-    
-    f = 0.3476;
-    for (i = 0; i < 50; i++)
-    {
-        r = f * i;
-        sprintf(buff, "%f\n", r);
-        my_putstr(buff);
-    }
+
+    sprintf(buff, "42");
+    my_putstr(buff);
+}
+
+void    rambow_led(void)
+{
+    uint8_t time = 10;
+        
+    wait(time); LED1 = 1;
+    wait(time); LED1 = 0;
+    wait(time); LED2 = 1;
+    wait(time); LED2 = 0;
+    wait(time); LED3 = 1;
+    wait(time); LED3 = 0;
 }
 
 int main()
@@ -123,18 +128,31 @@ int main()
     init_i2c_5();
     
  //   init_oled();
-    init_but_int();
+  //  init_but_int();
     init_mini_caps();    
     oledInitialize();
 
-    LED1 = 1;
-    
+    TRISBbits.TRISB12 = 1;
+    TRISBbits.TRISB13 = 1;
+    TRISBbits.TRISB14 = 1;
+
+    while (42)
+    {
+        LED1 = PORTBbits.RB12;
+        LED2 = PORTBbits.RB13;
+        LED3 = PORTBbits.RB14;
+        /*
+        if (PORTBbits.RB13 == 1)
+        {
+           //rambow_led();
+           //test_scroll_str();
+        }
+         * */
+    }
 //    DBINIT();
   //  DBPRINTF("test\n");
     //my_putstr("Aujourd'hui\nle  grand Karim\n ne  sait plus perdre\n a street fighter\n      !!!!   ");
-    
-
-    test_scrol_nbr();
+   
     while (1)
     {
         //tick_tick();
