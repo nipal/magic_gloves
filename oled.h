@@ -19,30 +19,35 @@
 #define GET_LED3 PORTBbits.RB10
 
 
-#define OLED_CMD_W  0b01111000
-#define OLED_CMD_R  0b01111001
-#define OLED_RAM_W  0b01111010
-#define OLED_RAM_R  0b01111011
+#define OLED_ADDR  0b0111100
 
 #define OLED_DISPLAY    0xA4
 #define OLED_ALL_ON     0xA5
 #define OLED_OFF        0xAE
 #define OLED_ON         0xAF
 
-#define OLED_ADD_HRZ    0x20
-
-#define WIDTH 128
-#define HEIGH 64
-#define OLED_SIZE 1024
-extern uint8_t oled[OLED_SIZE];
-void    init_i2c_5(void);
-void    oled_test(void);
+#define WIDTH           128
+#define HEIGHT          64
+#define OLED_SIZE       ((WIDTH * HEIGHT) / 8)
+#define OLED_ADDRESS    0x3C
 
 
 
-void        init_oled();
-uint8_t     oled_send_cmd(const uint8_t * const data, const uint8_t size);
-uint8_t     i2c5_send_byte(const uint8_t byte);
+    extern uint8_t oledBuffer[OLED_SIZE];
+
+    void    init_i2c_5(void);
+    void    wait(uint32_t);
+
+    void oledInitialize(void);
+    void oledClear(void);
+    void oledUpdate(void);
+    
+    void oledDrawPixel(uint8_t x, uint8_t y);
+    void oledDrawVLine(uint8_t x);
+    void oledDrawHLine(uint8_t y);
+
+    uint8_t    buff_is_empty();
+    void send_oled_data(uint8_t *data, uint16_t size);
 
 
 #ifdef	__cplusplus
