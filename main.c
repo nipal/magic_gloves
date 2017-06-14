@@ -68,6 +68,31 @@
 
 void    test();
 
+int8_t  txt_karimu[13][32] = {
+    {"################"},
+    {"Who is it?\n"},
+    {"OWW it's the:\n"},
+    {" GRAND KARIMU\n\n"},
+    {"I'm so proud to\n"},
+    {"meet you.\n"},
+    {"I heard about\n"},
+    {"your wining on:\n"},
+    {"################\n"},
+    {"Street fighter 5\n"},
+    {"################\n"},
+    {"Well...\n"},
+    {"\n\n\tBY\n\n"}};
+
+void    super_karim()
+{
+    uint8_t i;
+    
+    for (i = 0; i < 13; i++)
+    {
+        my_putstr(txt_karimu[i]);
+    }
+}  
+
 void    tick_begin(uint8_t nb)
 {
     uint8_t i;
@@ -125,6 +150,11 @@ int    test_i2c4(void)
 
 int main(void)
 {
+    init_led();
+    oledInitialize();
+    super_karim();
+    
+    /*
  //   LED1 = 1;
  //   LED2 = 1;
 //  LED3 = 1;
@@ -139,5 +169,6 @@ int main(void)
     
    while (1);
     test_i2c4();
+   */
    return (0);
 }

@@ -204,7 +204,7 @@ void    my_putchar(int8_t c)
     else
         memmove(history + curs_head, &(none), 8);//send_oled_data((uint8_t*)(&none), 8);
     curs_incr();
-//    wait(2);
+    wait(2);
 }
 
 void    my_putstr(int8_t *str)
@@ -216,8 +216,9 @@ void    my_putstr(int8_t *str)
     {
         my_putchar(str[i]);
         i++;
+        print_screen();
     }
-    print_screen();
+
 }
 
 void    my_putnbr(int32_t nbr)
