@@ -5,9 +5,12 @@
         <group>
             <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/button.c</file>
             <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/mini_caps.h</file>
+            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/mpu_i2c.c</file>
             <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/main.c</file>
+            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/sd_card.c</file>
             <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/oled.h</file>
-            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/button.h</file>
+            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/i2c_oled.c</file>
+            <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/nbproject/Makefile-impl.mk</file>
             <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/oled_ssd1306.c</file>
             <file>file:/home/lapin/MPLABXProjects/prof_of_concept.X/mini_caps.c</file>
         </group>

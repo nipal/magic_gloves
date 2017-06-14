@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c i2c_oled.c mpu_i2c.c oled_ssd1306.c mini_caps.c button.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c mpu_i2c.c oled_ssd1306.c mini_caps.c button.c sd_card.c debug_but.c test.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/i2c_oled.o ${OBJECTDIR}/mpu_i2c.o ${OBJECTDIR}/oled_ssd1306.o ${OBJECTDIR}/mini_caps.o ${OBJECTDIR}/button.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/i2c_oled.o.d ${OBJECTDIR}/mpu_i2c.o.d ${OBJECTDIR}/oled_ssd1306.o.d ${OBJECTDIR}/mini_caps.o.d ${OBJECTDIR}/button.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/mpu_i2c.o ${OBJECTDIR}/oled_ssd1306.o ${OBJECTDIR}/mini_caps.o ${OBJECTDIR}/button.o ${OBJECTDIR}/sd_card.o ${OBJECTDIR}/debug_but.o ${OBJECTDIR}/test.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/mpu_i2c.o.d ${OBJECTDIR}/oled_ssd1306.o.d ${OBJECTDIR}/mini_caps.o.d ${OBJECTDIR}/button.o.d ${OBJECTDIR}/sd_card.o.d ${OBJECTDIR}/debug_but.o.d ${OBJECTDIR}/test.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/i2c_oled.o ${OBJECTDIR}/mpu_i2c.o ${OBJECTDIR}/oled_ssd1306.o ${OBJECTDIR}/mini_caps.o ${OBJECTDIR}/button.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/mpu_i2c.o ${OBJECTDIR}/oled_ssd1306.o ${OBJECTDIR}/mini_caps.o ${OBJECTDIR}/button.o ${OBJECTDIR}/sd_card.o ${OBJECTDIR}/debug_but.o ${OBJECTDIR}/test.o
 
 # Source Files
-SOURCEFILES=main.c i2c_oled.c mpu_i2c.c oled_ssd1306.c mini_caps.c button.c
+SOURCEFILES=main.c mpu_i2c.c oled_ssd1306.c mini_caps.c button.c sd_card.c debug_but.c test.c
 
 
 CFLAGS=
@@ -112,12 +112,6 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
-${OBJECTDIR}/i2c_oled.o: i2c_oled.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/i2c_oled.o.d 
-	@${RM} ${OBJECTDIR}/i2c_oled.o 
-	@${FIXDEPS} "${OBJECTDIR}/i2c_oled.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/i2c_oled.o.d" -o ${OBJECTDIR}/i2c_oled.o i2c_oled.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
 ${OBJECTDIR}/mpu_i2c.o: mpu_i2c.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/mpu_i2c.o.d 
@@ -142,18 +136,30 @@ ${OBJECTDIR}/button.o: button.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/button.o 
 	@${FIXDEPS} "${OBJECTDIR}/button.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/button.o.d" -o ${OBJECTDIR}/button.o button.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/sd_card.o: sd_card.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/sd_card.o.d 
+	@${RM} ${OBJECTDIR}/sd_card.o 
+	@${FIXDEPS} "${OBJECTDIR}/sd_card.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/sd_card.o.d" -o ${OBJECTDIR}/sd_card.o sd_card.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/debug_but.o: debug_but.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/debug_but.o.d 
+	@${RM} ${OBJECTDIR}/debug_but.o 
+	@${FIXDEPS} "${OBJECTDIR}/debug_but.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/debug_but.o.d" -o ${OBJECTDIR}/debug_but.o debug_but.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/test.o: test.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/test.o.d 
+	@${RM} ${OBJECTDIR}/test.o 
+	@${FIXDEPS} "${OBJECTDIR}/test.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/test.o.d" -o ${OBJECTDIR}/test.o test.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
-	
-${OBJECTDIR}/i2c_oled.o: i2c_oled.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/i2c_oled.o.d 
-	@${RM} ${OBJECTDIR}/i2c_oled.o 
-	@${FIXDEPS} "${OBJECTDIR}/i2c_oled.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/i2c_oled.o.d" -o ${OBJECTDIR}/i2c_oled.o i2c_oled.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/mpu_i2c.o: mpu_i2c.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -178,6 +184,24 @@ ${OBJECTDIR}/button.o: button.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/button.o.d 
 	@${RM} ${OBJECTDIR}/button.o 
 	@${FIXDEPS} "${OBJECTDIR}/button.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/button.o.d" -o ${OBJECTDIR}/button.o button.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/sd_card.o: sd_card.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/sd_card.o.d 
+	@${RM} ${OBJECTDIR}/sd_card.o 
+	@${FIXDEPS} "${OBJECTDIR}/sd_card.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/sd_card.o.d" -o ${OBJECTDIR}/sd_card.o sd_card.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/debug_but.o: debug_but.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/debug_but.o.d 
+	@${RM} ${OBJECTDIR}/debug_but.o 
+	@${FIXDEPS} "${OBJECTDIR}/debug_but.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/debug_but.o.d" -o ${OBJECTDIR}/debug_but.o debug_but.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/test.o: test.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/test.o.d 
+	@${RM} ${OBJECTDIR}/test.o 
+	@${FIXDEPS} "${OBJECTDIR}/test.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-toplevel-reorder -MMD -MF "${OBJECTDIR}/test.o.d" -o ${OBJECTDIR}/test.o test.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 endif
 

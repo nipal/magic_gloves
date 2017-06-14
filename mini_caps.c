@@ -160,6 +160,36 @@ void    add_one_char()
 {
 }
 
+void    my_putchar2(int8_t c)
+{
+    uint64_t    none = 0xFFFFFFFFFFFFFFF;
+    int8_t      id = (int8_t)c;
+    
+    if (c == '\n')
+        return (putendl());
+    if (c == '\t')
+        return (puttab());
+    if (c >= ' ' && c <= '~')
+        send_oled_data((uint8_t*)&(basicFont[c - ' '][0]), 8);//send_oled_data((uint8_t*)(&(basicFont[c - ' '][0])), 8);
+    else
+        send_oled_data((uint8_t*)&(none), 8);//send_oled_data((uint8_t*)(&none), 8);
+    curs_incr();
+//    wait(2);
+}
+void    my_putstr2(int8_t *str)
+{
+    uint16_t    i;
+    
+    i = 0;
+    while (str[i])
+    {
+        my_putchar2(str[i]);
+        i++;
+    }
+//    print_screen();
+}
+
+
 void    my_putchar(int8_t c)
 {
     uint64_t    none = 0xFFFFFFFFFFFFFFF;
@@ -172,9 +202,9 @@ void    my_putchar(int8_t c)
     if (c >= ' ' && c <= '~')
         memmove(history + curs_head, &(basicFont[c - ' '][0]), 8);//send_oled_data((uint8_t*)(&(basicFont[c - ' '][0])), 8);
     else
-        memmove(history + curs_head, &(basicFont[0][0]), 8);//send_oled_data((uint8_t*)(&none), 8);
+        memmove(history + curs_head, &(none), 8);//send_oled_data((uint8_t*)(&none), 8);
     curs_incr();
- //   wait(1);
+//    wait(2);
 }
 
 void    my_putstr(int8_t *str)
@@ -229,7 +259,7 @@ void    print_screen()
     else if (curs_aff < (OLED_SIZE) && !curs_over_head)
         beg = 0;
     else
-        beg = (line_screen - 8) << 7;
+        beg = (line_screen - 7) << 7;
     send_oled_data(history + beg, OLED_SIZE);
 }
 

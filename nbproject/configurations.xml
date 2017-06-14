@@ -18,17 +18,19 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
-      <itemPath>i2c_oled.c</itemPath>
       <itemPath>mpu_i2c.c</itemPath>
       <itemPath>oled_ssd1306.c</itemPath>
       <itemPath>mini_caps.c</itemPath>
       <itemPath>button.c</itemPath>
+      <itemPath>sd_card.c</itemPath>
+      <itemPath>debug_but.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>test.c</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

@@ -223,7 +223,8 @@ static inline void _swap(uint8_t *a, uint8_t *b) {
     Refer to the example_file.h interface header for function usage details.
  */
 void oledInitialize(void)
-{    
+{
+    init_i2c_5();
    TRISFbits.TRISF1 = 0;//    BSP_LCDTurnOn();
    LATFbits.LATF1 = 1;
    

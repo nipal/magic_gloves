@@ -8,6 +8,11 @@
 #ifndef MPU_I2C_H
 #define	MPU_I2C_H
 
+////////////////
+#include "oled.h"
+#include <stdint.h>
+////////////////
+
 #include <xc.h>
 
 #define SMPRT_DIV	0x19

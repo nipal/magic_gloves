@@ -15,7 +15,7 @@
 #define CHAR_BY_COLUMN 32
 #define TAB_SIZE 4
 
-#define SIZE_HISTORY (16 * 16 * 8)
+#define SIZE_HISTORY (8 * 16 * 8)
 
 extern uint32_t    offset_screen;
 extern uint32_t    offset_screen_max;
@@ -23,7 +23,8 @@ extern uint32_t    offset_screen_max;
 
 extern  const uint8_t basicFont[96][8];
 
-
+void    my_putchar2(int8_t c);
+void    my_putstr2(int8_t *str);
 void    my_putchar(int8_t c);
 void    my_putstr(int8_t *str);
 void    my_putnbr(int32_t nbr);

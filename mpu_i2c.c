@@ -78,12 +78,12 @@ static unsigned short	send(unsigned short mpu, unsigned short reg,
 		I2C4CONbits.SEN = 1;		// Envoi du Start bit
 		while (I2C4CONbits.SEN);	// Attente que le start bit soit bien envoye
 		if (!i2c4_send_byte((address << 1) + 0))	// Adresse + Write
-			return (0);
-		if (!i2c4_send_byte(reg))	// Registre
-			return (0);
-		if (!i2c4_send_byte(data))	// Data
-			return (0);
-		I2C4CONbits.PEN = 1;		// Envoi du stop bit
+            return (0);
+        if (!i2c4_send_byte(reg))	// Registre
+            return (0);
+        if (!i2c4_send_byte(data))	// Data
+            return (0);
+        I2C4CONbits.PEN = 1;		// Envoi du stop bit
 		while (I2C4CONbits.PEN);
 	}
 	return 1;
@@ -149,14 +149,23 @@ static unsigned char	i2c4_receive(unsigned short address, unsigned short reg,
 	I2C4CONbits.SEN = 1;		// Envoi du Start bit
 	while (I2C4CONbits.SEN);	// Attente que le start bit soit bien envoye
 	if (!i2c4_send_byte((address << 1) + 0))	// Adresse + Write
-		return (0);
-	if (!i2c4_send_byte(reg))	// Registre
-		return (0);
-	I2C4CONbits.RSEN = 1;		// Envoi du Repeated Start bit
+    {
+        LED1 = 1;
+        return (0);
+	}
+    if (!i2c4_send_byte(reg))	// Registre
+	{
+        LED2 = 1;
+        return (0);
+	}
+    I2C4CONbits.RSEN = 1;		// Envoi du Repeated Start bit
 	while (I2C4CONbits.RSEN);
 	if (!i2c4_send_byte((address << 0) + 1))	// Adresse + Read
-		return (0);
-	while (size--) 			// Read tant qu'on a pas atteint size octets
+	{
+        LED3 = 1;
+        return (0);
+	}
+    while (size--) 			// Read tant qu'on a pas atteint size octets
 	{
 		I2C4CONbits.RCEN = 1;		// Pret a recevoir
 		while (!I2C4STATbits.RBF);	// Tant que Receive Buffer non Full
@@ -232,3 +241,74 @@ unsigned char	read_mpu_samples(t_mpu_sample *mpu_sample)
 			return 0;
 	return (1);
 }
+///////////////////////////////////////////////////////
+/////////////////// TEST ACCElEROMTRE ///////////
+///////////////////////////////////////////////////////
+
+uint8_t    send_i2c4_data(uint8_t reg, uint8_t data)
+{
+    uint8_t address = 0b1101000;
+    
+    I2C4CONbits.SEN = 1;		// Envoi du Start bit
+    while (I2C4CONbits.SEN);	// Attente que le start bit soit bien envoyes
+    if (!i2c4_send_byte((address << 1) + 0))	// Adresse + Write
+    {
+        my_putstr("addr err\n");
+        return (0);
+    }
+    if (!i2c4_send_byte(reg))	// Registre
+    {
+        my_putstr("reg err\n");
+        return (0);
+    }
+    if (!i2c4_send_byte(data))	// Data
+    {
+        my_putstr("data err\n");
+        return (0);
+    }
+    I2C4CONbits.PEN = 1;		// Envoi du stop bit
+    while (I2C4CONbits.PEN);
+    return (1);
+}
+
+void    test_i2c_init()
+{
+
+ //   int8_t  mpu = 5;
+    
+    // init I2C::4
+	I2C4CON = 0;
+    I2C4BRG = 0x09;
+//    I2C4CONbits.SIDL = 1;
+	I2C4CONbits.ON = 1;
+    
+  //  LED1 = 1;
+    wait(10);// pour etre sur de l'initialisation du module i2c
+    
+    
+     
+   while (1)
+        send_i2c4_data(0xff, 0);
+    /*
+    if (!send_i2c4_data(0, 0))
+    {
+        my_putstr("i2c_4 send ERR\n");
+    }
+    else
+    {
+        my_putstr("i2c_4 send OK\n");
+    }
+    */
+ //   while (1);
+
+}
+
+/*
+    send(mpu, SMPRT_DIV, SAMPLE_RATE_DIVIDER);
+    send(mpu, MPU_CONFIG, 0b00000000);	// Pas de sync externe ni de DLPF
+    send(mpu, GYRO_CONFIG, GYRO_FS_250);	// Gyroscope en mode full scale +/-250deg
+    send(mpu, ACCEL_CONFIG, ACCEL_FS_2);	// Accelerometre en mode full scale +/-2g
+    send(mpu, USER_CTRL, 0b01000101);	// FIFO enable, FIFO reset, Sensor reset
+    send(mpu, FIFO_EN, 0b11111000);		// FIFO composition : accel, gyro, temperature
+    send(mpu, PWR_MGMT_1, 0b00000000); // On vire le sleep mode
+ */

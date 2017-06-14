@@ -1,5 +1,5 @@
 build/default/debug/main.o:  \
 main.c  \
-prof_concept.h  \
 oled.h  \
-mini_caps.h 
+mini_caps.h  \
+mpu_i2c.h 

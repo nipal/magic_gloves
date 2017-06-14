@@ -84,3 +84,53 @@ __ISR() youpi()
 }
 
 */
+
+
+/*
+void    test()
+{
+    uint8_t i;
+    
+    TRISBbits.TRISB12 = 1;
+    TRISBbits.TRISB13 = 1;
+    TRISBbits.TRISB14 = 1;
+    
+    TRISBbits.TRISB8 = 0;
+    TRISBbits.TRISB9 = 0;
+    TRISBbits.TRISB10 = 0;
+    
+    tick_begin(3);
+   
+//    aff_port();
+//    return ;
+    
+    
+    //
+    LED3 = 1;
+ //   LED3 = 0;
+    for (i = 0; i >= 0; i++)
+    {
+        print_16_bin(PORTB);
+        print_16_bin(LATB);
+        print_16_bin(TRISB);
+    }
+}
+
+
+void    print_16_bin(uint16_t val)
+{
+    int8_t  i;
+    int8_t  str[17];
+    
+    for (i = 0; i < 16; ++i)
+    {
+        if (val & (1 << (15 - i)))
+            str[i] = '#';
+        else
+            str[i] = '_';
+    }
+    str[16] = '\0';
+    my_putstr(str);
+}
+
+*/
